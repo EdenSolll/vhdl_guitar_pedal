@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
+use work.globals.all;
 use work.all;
 
 entity guitar_pedal is
@@ -95,12 +96,14 @@ architecture behavioral of guitar_pedal is
 	signal s_data_tready        : std_logic;
 	signal m_raw_data_tdata     : std_logic_vector(47 downto 0);
 	signal m_valid_data_tdata   : std_logic_vector(47 downto 0);
+  signal m_data_tuser         : std_logic_vector(23 downto 0);
 	signal m_data_tvalid        : std_logic;
 	signal m_data_tready        : std_logic;
 	signal m_status_tvalid      : std_logic;
 	signal m_raw_status_tdata   : std_logic_vector(7 downto 0);
 	signal m_valid_status_tdata : std_logic_vector(7 downto 0);
 
+  signal freqs : freq_buffer := (others => (others => '0'));
 
 begin
 
@@ -133,7 +136,7 @@ begin
       s_axis_data_tready   => s_data_tready,
       s_axis_data_tlast    => s_tlast, -- ignore signal
       m_axis_data_tdata    => m_raw_data_tdata,
-      -- m_axis_data_tuser          => m_data_tuser,
+      m_axis_data_tuser    => m_data_tuser,
       m_axis_data_tvalid   => m_data_tvalid,
       --	m_axis_data_tlast          => m_axis_data_tlast,
       m_axis_status_tdata  => m_raw_status_tdata,
@@ -163,5 +166,9 @@ begin
 	m_valid_status_tdata <= m_raw_status_tdata when m_status_tvalid = '1';
 
 	m_valid_data_tdata   <= m_raw_data_tdata when m_data_tvalid = '1';
+
+  for i in 0 to 1023 generate
+    freqs(i) <= m_valid_data_tdata;
+  end generate;
 
 end behavioral;
