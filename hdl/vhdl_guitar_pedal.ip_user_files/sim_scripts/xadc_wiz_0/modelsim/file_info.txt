@@ -1,0 +1,4 @@
+xpm_memory.sv,systemverilog,xpm,../../../../../home/Sol/Xilinx/Vivado/2025.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef"
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../home/Sol/Xilinx/Vivado/2025.1/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef"
+xadc_wiz_0.v,verilog,xil_defaultlib,../../../../vhdl_guitar_pedal.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.v,incdir="../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v
