@@ -45,8 +45,11 @@ begin
 
         re_t <= mag(i) * cos(phase(i));
         im_t <= mag(i) * sin(phase(i));
+<<<<<<< HEAD
 
         exp_out(i) <= im_t & re_t;
+=======
+>>>>>>> refs/remotes/origin/master
     end generate;
 
     idx_out <= idx_in;
