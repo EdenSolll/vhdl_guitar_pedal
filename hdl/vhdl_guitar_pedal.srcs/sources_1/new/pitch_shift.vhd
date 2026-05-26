@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.MATH_REAL.all;
 use work.globals.all;
 use work.all;
 

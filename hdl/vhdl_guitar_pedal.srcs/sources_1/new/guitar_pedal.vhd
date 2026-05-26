@@ -167,7 +167,7 @@ begin
 
 	m_valid_data_tdata   <= m_raw_data_tdata when m_data_tvalid = '1';
 
-  for i in 0 to 1023 generate
+  freq_buffer_gen : for i in 0 to 1023 generate
     freqs(i) <= m_valid_data_tdata;
   end generate;
 
