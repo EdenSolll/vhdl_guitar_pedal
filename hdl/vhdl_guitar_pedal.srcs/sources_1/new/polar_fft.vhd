@@ -20,12 +20,7 @@ entity polar_fft is
 end entity polar_fft;
 
 architecture behavioral of polar_fft is
-	-- Block RAM type for storing phase and magnitude
-
-	type ram_24bit is array (0 to 1023) of std_logic_vector(23 downto 0);
-
 	-- FFT configuration constants
-
 	constant s_config_tdata        : std_logic_vector(7 downto 0)  := "00000001";                 -- forward transform selected, optional fields not needed
 	constant s_iconfig_tdata       : std_logic_vector(7 downto 0)  := "00000000";                 -- inverse transform selected, optional fields not needed
 	constant s_data_imaginary      : std_logic_vector(23 downto 0) := "000000000000000000000000"; -- all input data is real

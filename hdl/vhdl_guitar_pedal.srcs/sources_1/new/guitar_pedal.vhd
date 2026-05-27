@@ -13,7 +13,7 @@ entity guitar_pedal is
 	);
 end guitar_pedal;
 
-architecture behavioral of guitar_pedal is
+architecture structural of guitar_pedal is
 
 	signal master_clk  : std_logic;
 	signal serial_clk  : std_logic;
@@ -114,4 +114,4 @@ begin
 		real_data   => r_data_avg
 	);
 
-end behavioral;
+end structural;
