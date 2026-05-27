@@ -125,33 +125,36 @@ begin
 		-- 	event_data_in_channel_halt => event_data_in_channel_halt
 	);
 
-	process (clk)
-	begin
-		if rising_edge(clk) then
-			word_delay <= word_select;
-			if (word_select = '1' and word_delay = '0') then
-				if s_config_tready = '1' then
-					s_config_tvalid <= '1';
-				end if;
-			else
-				s_config_tvalid <= '0';
-			end if;
-		end if;
-	end process;
+  -- Ready FFT Input
+  process(clk) is
+      signal divider : std_logic := '0';
+      signal ws_last : std_logic;
+  begin
+    if clk = '1' then
+      if word_select /= ws_last then
+        divider <= not divider;
+        if divider = '1' then
+          s_data_tvalid <= '1';
+        end if; -- divider = '1'
+      end if; -- word_select /= ws_last
+      ws_last <= word_select;
+    end if; --clk = '1'
+  end process;
 
-	process (clk)
-	begin
-		if rising_edge(clk) then
-			word_delay <= word_select;
-			if (word_select = '1' and word_delay = '0') then
-				if s_data_tready = '1' then
-					s_data_tvalid <= '1';
-				end if;
-			else
-				s_data_tvalid <= '0';
-			end if;
-		end if;
-	end process;
+  -- Complete data handshake
+  process(s_data_tready, clk) is
+    signal transmitted : std_logic := '0';
+  begin
+    if s_data_tready = '1' and s_data_tvalid = '1' then
+      transmitted <= '1';
+    else
+      if transmitted = '1' then
+        transmitted <= '0';
+        s_data_tvalid <= '0';
+      end if; -- transmitted = '1'
+    end if; -- s_data_tready = '1'
+  end process;
+
 
 	m_valid_status_tdata <= m_raw_status_tdata when m_status_tvalid = '1';
 
