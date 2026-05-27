@@ -127,8 +127,8 @@ begin
 
   -- Ready FFT Input
   process(clk) is
-      signal divider : std_logic := '0';
-      signal ws_last : std_logic;
+      variable divider : std_logic := '0';
+      variable ws_last : std_logic;
   begin
     if clk = '1' then
       if word_select /= ws_last then
@@ -143,7 +143,7 @@ begin
 
   -- Complete data handshake
   process(s_data_tready, clk) is
-    signal transmitted : std_logic := '0';
+    variable transmitted : std_logic := '0';
   begin
     if s_data_tready = '1' and s_data_tvalid = '1' then
       transmitted <= '1';
