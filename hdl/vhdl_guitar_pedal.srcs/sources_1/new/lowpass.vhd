@@ -25,7 +25,7 @@ architecture beh of lowpass is
 begin
 
     for i in 0 to fft_len-1 generate
-
+        if mag_in(i) < '000001'; -- 1/64 ~= 1.5%
     end generate;
 
 end architecture beh;
