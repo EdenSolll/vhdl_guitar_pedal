@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1'
+HD_PWD='/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

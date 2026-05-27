@@ -7,7 +7,7 @@
   **** SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
   **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
   **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Fri May 22 18:01:35 2026
+  **** Start of session at: Mon May 25 20:30:12 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -19,18 +19,18 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 44671
+INFO: [Synth 8-7075] Helper process launched with PID 73008
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2109.512 ; gain = 438.742 ; free physical = 400 ; free virtual = 23203
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2109.727 ; gain = 438.742 ; free physical = 235 ; free virtual = 13845
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'xfft_0' [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:83]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:81]
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_PART bound to: xc7a35tcpg236-1 - type: string 
-	Parameter C_S_AXIS_CONFIG_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXIS_CONFIG_TDATA_WIDTH bound to: 24 - type: integer 
 	Parameter C_S_AXIS_DATA_TDATA_WIDTH bound to: 48 - type: integer 
 	Parameter C_M_AXIS_DATA_TDATA_WIDTH bound to: 48 - type: integer 
-	Parameter C_M_AXIS_DATA_TUSER_WIDTH bound to: 24 - type: integer 
-	Parameter C_M_AXIS_STATUS_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_M_AXIS_DATA_TUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_M_AXIS_STATUS_TDATA_WIDTH bound to: 1 - type: integer 
 	Parameter C_THROTTLE_SCHEME bound to: 0 - type: integer 
 	Parameter C_NSSR bound to: 1 - type: integer 
 	Parameter C_CHANNELS bound to: 1 - type: integer 
@@ -42,7 +42,7 @@ INFO: [Synth 8-638] synthesizing module 'xfft_0' [/home/Sol/vhdl_guitar_pedal/vh
 	Parameter C_TWIDDLE_WIDTH bound to: 24 - type: integer 
 	Parameter C_OUTPUT_WIDTH bound to: 24 - type: integer 
 	Parameter C_HAS_SCALING bound to: 1 - type: integer 
-	Parameter C_HAS_BFP bound to: 1 - type: integer 
+	Parameter C_HAS_BFP bound to: 0 - type: integer 
 	Parameter C_HAS_ROUNDING bound to: 1 - type: integer 
 	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
 	Parameter C_HAS_ARESETN bound to: 1 - type: integer 
@@ -61,8 +61,8 @@ INFO: [Synth 8-638] synthesizing module 'xfft_0' [/home/Sol/vhdl_guitar_pedal/vh
 	Parameter C_BFLY_TYPE bound to: 0 - type: integer 
 	Parameter C_SYSTOLICFFT_INV bound to: 0 - type: integer 
 	Parameter C_IS_BLOCKING_RUNTIME_CONF bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'xfft_v9_1_14' declared at '/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/hdl/xfft_v9_1_vh_rfs.vhd:103919' bound to instance 'U0' of component 'xfft_v9_1_14' [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:204]
-INFO: [Synth 8-256] done synthesizing module 'xfft_0' (0#1) [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:83]
+INFO: [Synth 8-3491] module 'xfft_v9_1_14' declared at '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/hdl/xfft_v9_1_vh_rfs.vhd:103919' bound to instance 'U0' of component 'xfft_v9_1_14' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:198]
+INFO: [Synth 8-256] done synthesizing module 'xfft_0' (0#1) [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:81]
 WARNING: [Synth 8-7129] Port clk in module c_addsub_v12_0_20_lut6_legacy__parameterized11 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port add in module c_addsub_v12_0_20_lut6_legacy__parameterized11 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port c_in in module c_addsub_v12_0_20_lut6_legacy__parameterized11 is either unconnected or has no load
@@ -79,10 +79,10 @@ WARNING: [Synth 8-7129] Port b_in in module c_addsub_v12_0_20_legacy__parameteri
 WARNING: [Synth 8-7129] Port a_signed in module c_addsub_v12_0_20_legacy__parameterized11 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port b_signed in module c_addsub_v12_0_20_legacy__parameterized11 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port C_IN in module c_addsub_v12_0_20_viv__parameterized5 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized22 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized22 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized22 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized18 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port clk in module logic_gate__parameterized5 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ce in module logic_gate__parameterized5 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port clk in module logic_gate__parameterized4 is either unconnected or has no load
@@ -137,97 +137,87 @@ WARNING: [Synth 8-7129] Port ROUND_CY in module cmpy_v6_0_26_synth is either unc
 WARNING: [Synth 8-7129] Port ACCUMULATOR_RESET in module cmpy_v6_0_26_synth is either unconnected or has no load
 WARNING: [Synth 8-7129] Port IS_VALID in module cmpy_v6_0_26_synth is either unconnected or has no load
 WARNING: [Synth 8-7129] Port round_cy in module cmpy is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized21 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized21 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized21 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized21 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port CLK in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port CE in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SCLR in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized20 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[15] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[14] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[13] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[12] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[11] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[10] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[9] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[8] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[7] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[6] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[5] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[4] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[3] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[2] in module shift_ram__parameterized19 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Q[1] in module shift_ram__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[15] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[14] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[13] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[12] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[11] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[10] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[9] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[8] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[7] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[6] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[5] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[4] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[3] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[2] in module shift_ram__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q[1] in module shift_ram__parameterized15 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:03 ; elapsed = 00:01:13 . Memory (MB): peak = 2828.020 ; gain = 1157.250 ; free physical = 340 ; free virtual = 20428
+Finished RTL Elaboration : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 2784.234 ; gain = 1113.250 ; free physical = 247 ; free virtual = 12865
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:03 ; elapsed = 00:01:13 . Memory (MB): peak = 2828.020 ; gain = 1157.250 ; free physical = 471 ; free virtual = 20559
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 2784.234 ; gain = 1113.250 ; free physical = 246 ; free virtual = 12864
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:03 ; elapsed = 00:01:13 . Memory (MB): peak = 2828.020 ; gain = 1157.250 ; free physical = 471 ; free virtual = 20559
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 2784.234 ; gain = 1113.250 ; free physical = 246 ; free virtual = 12864
 ---------------------------------------------------------------------------------
 WARNING: [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.
 Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.
-Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2828.020 ; gain = 0.000 ; free physical = 363 ; free virtual = 20455
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2784.234 ; gain = 0.000 ; free physical = 248 ; free virtual = 12868
 INFO: [Netlist 29-17] Analyzing 895 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc] for cell 'U0'
-Parsing XDC File [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2868.039 ; gain = 0.000 ; free physical = 748 ; free virtual = 20861
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2824.254 ; gain = 0.000 ; free physical = 245 ; free virtual = 12829
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 298 instances were transformed.
   FDE => FDRE: 202 instances
   RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 96 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2868.074 ; gain = 0.000 ; free physical = 722 ; free virtual = 20836
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2824.289 ; gain = 0.000 ; free physical = 245 ; free virtual = 12829
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:17 ; elapsed = 00:01:28 . Memory (MB): peak = 2868.074 ; gain = 1197.305 ; free physical = 350 ; free virtual = 20477
+Finished Constraint Validation : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 2824.289 ; gain = 1153.305 ; free physical = 246 ; free virtual = 12825
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:17 ; elapsed = 00:01:28 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 350 ; free virtual = 20477
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 246 ; free virtual = 12825
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:17 ; elapsed = 00:01:28 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 350 ; free virtual = 20477
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 246 ; free virtual = 12825
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'gen_status_channel.gen_status_blk_exp.we_current_state_reg' in module 'axi_wrapper'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
- st_wait_for_frame_start |                              001 |                               00
-  st_wait_for_fifo_write |                              010 |                               01
-   st_wait_for_frame_end |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'gen_status_channel.gen_status_blk_exp.we_current_state_reg' using encoding 'one-hot' in module 'axi_wrapper'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:19 ; elapsed = 00:01:30 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 548 ; free virtual = 20672
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 240 ; free virtual = 12820
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-223] decloning instance 'U0/i_synth/non_native_flt_non_ssr_fft.xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line2_for_rfd' (shift_ram) to 'U0/i_synth/non_native_flt_non_ssr_fft.xfft_inst/non_floating_point.arch_c.xfft_inst/control/has_bfp.delay_rfd_for_scale_select'
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -271,25 +261,25 @@ INFO: [Synth 8-3332] Sequential element (non_native_flt_non_ssr_fft.xfft_inst/no
 INFO: [Synth 8-3332] Sequential element (non_native_flt_non_ssr_fft.xfft_inst/non_floating_point.arch_c.xfft_inst/single_channel.datapath/pe/round.rounder_1r/reg_gate.delay_d_2/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre0) is unused and will be removed from module xfft_v9_1_14_viv.
 INFO: [Synth 8-3332] Sequential element (non_native_flt_non_ssr_fft.xfft_inst/non_floating_point.arch_c.xfft_inst/single_channel.datapath/pe/round.rounder_1i/reg_gate.delay_d_2/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre0) is unused and will be removed from module xfft_v9_1_14_viv.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:25 ; elapsed = 00:01:36 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 848 ; free virtual = 20992
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 248 ; free virtual = 12818
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:34 ; elapsed = 00:01:46 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 1064 ; free virtual = 21223
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 213 ; free virtual = 12799
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:48 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 881 ; free virtual = 21040
+Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 320 ; free virtual = 12830
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:37 ; elapsed = 00:01:49 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 653 ; free virtual = 20821
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 317 ; free virtual = 12827
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -307,37 +297,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:43 ; elapsed = 00:01:56 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 157 ; free virtual = 20079
+Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 292 ; free virtual = 12844
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:43 ; elapsed = 00:01:56 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 164 ; free virtual = 20084
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 292 ; free virtual = 12845
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:44 ; elapsed = 00:01:57 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 533 ; free virtual = 20340
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 297 ; free virtual = 12852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:57 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 533 ; free virtual = 20339
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 297 ; free virtual = 12852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:44 ; elapsed = 00:01:57 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 528 ; free virtual = 20335
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 297 ; free virtual = 12852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:45 ; elapsed = 00:01:57 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 528 ; free virtual = 20335
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 297 ; free virtual = 12852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -370,58 +360,58 @@ Report Cell Usage:
 +------+----------+------+
 |1     |DSP48E1   |     8|
 |5     |LUT1      |    32|
-|6     |LUT2      |   141|
-|7     |LUT3      |   236|
-|8     |LUT4      |    55|
-|9     |LUT5      |    34|
-|10    |LUT6      |   398|
+|6     |LUT2      |   127|
+|7     |LUT3      |   248|
+|8     |LUT4      |    44|
+|9     |LUT5      |    26|
+|10    |LUT6      |   381|
 |11    |MUXCY     |   270|
 |12    |MUXF7     |    36|
 |13    |MUXF8     |    18|
 |14    |RAM128X1D |    96|
 |15    |RAMB18E1  |     4|
-|17    |SRL16E    |   242|
-|18    |SRLC32E   |     3|
+|17    |SRL16E    |   237|
+|18    |SRLC32E   |     2|
 |19    |XORCY     |   260|
 |20    |FDE       |   195|
-|21    |FDRE      |  1490|
-|22    |FDSE      |    30|
+|21    |FDRE      |  1495|
+|22    |FDSE      |    17|
 +------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:45 ; elapsed = 00:01:57 . Memory (MB): peak = 2876.043 ; gain = 1205.273 ; free physical = 517 ; free virtual = 20323
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2832.258 ; gain = 1161.273 ; free physical = 297 ; free virtual = 12852
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 296 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:41 ; elapsed = 00:01:53 . Memory (MB): peak = 2876.043 ; gain = 1165.219 ; free physical = 760 ; free virtual = 20567
-Synthesis Optimization Complete : Time (s): cpu = 00:01:45 ; elapsed = 00:01:57 . Memory (MB): peak = 2876.051 ; gain = 1205.273 ; free physical = 760 ; free virtual = 20567
+Synthesis finished with 0 errors, 0 critical warnings and 239 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 2832.258 ; gain = 1121.219 ; free physical = 297 ; free virtual = 12853
+Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:53 . Memory (MB): peak = 2832.266 ; gain = 1161.273 ; free physical = 297 ; free virtual = 12853
 INFO: [Project 1-571] Translating synthesized netlist
 WARNING: [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem__1'.
 Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.
 WARNING: [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.
 Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.
-Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2876.051 ; gain = 0.000 ; free physical = 1164 ; free virtual = 20999
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2832.266 ; gain = 0.000 ; free physical = 435 ; free virtual = 13040
 INFO: [Netlist 29-17] Analyzing 887 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2932.070 ; gain = 0.000 ; free physical = 1131 ; free virtual = 20983
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2888.285 ; gain = 0.000 ; free physical = 437 ; free virtual = 13049
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 375 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 84 instances
   FDE => FDRE: 195 instances
   RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 96 instances
 
-Synth Design complete | Checksum: 4678bc8a
+Synth Design complete | Checksum: 89862b32
 INFO: [Common 17-83] Releasing license: Synthesis
-45 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
+42 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:54 ; elapsed = 00:02:03 . Memory (MB): peak = 2932.105 ; gain = 1341.734 ; free physical = 1062 ; free virtual = 20916
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2311.474; main = 2093.294; forked = 276.842
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3833.738; main = 2932.074; forked = 957.691
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2956.082 ; gain = 0.000 ; free physical = 1053 ; free virtual = 20907
-INFO: [Common 17-1381] The checkpoint '/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP xfft_0, cache-ID = 06dd1a301da24fe2
-INFO: [Coretcl 2-1174] Renamed 252 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2956.082 ; gain = 0.000 ; free physical = 693 ; free virtual = 20555
-INFO: [Common 17-1381] The checkpoint '/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:00:58 . Memory (MB): peak = 2888.320 ; gain = 1337.672 ; free physical = 437 ; free virtual = 13049
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2423.800; main = 2250.896; forked = 322.799
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3789.953; main = 2888.289; forked = 957.691
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2912.297 ; gain = 0.000 ; free physical = 438 ; free virtual = 13051
+INFO: [Common 17-1381] The checkpoint '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP xfft_0, cache-ID = 381c41609a8c0851
+INFO: [Coretcl 2-1174] Renamed 227 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2912.297 ; gain = 0.000 ; free physical = 408 ; free virtual = 13037
+INFO: [Common 17-1381] The checkpoint '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file xfft_0_utilization_synth.rpt -pb xfft_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri May 22 18:03:54 2026...
+INFO: [Common 17-206] Exiting Vivado at Mon May 25 20:31:24 2026...

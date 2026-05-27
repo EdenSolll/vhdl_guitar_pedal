@@ -32,7 +32,7 @@ vmap cmpy_v6_0_26 riviera/cmpy_v6_0_26
 vmap xfft_v9_1_14 riviera/xfft_v9_1_14
 vmap xil_defaultlib riviera/xil_defaultlib
 
-vlog -work xpm  -incr "+incdir+../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef" -l xpm -l xbip_utils_v3_0_14 -l axi_utils_v2_0_10 -l c_reg_fd_v12_0_10 -l xbip_dsp48_wrapper_v3_0_7 -l xbip_pipe_v3_0_10 -l c_addsub_v12_0_20 -l c_shift_ram_v12_0_19 -l mult_gen_v12_0_23 -l floating_point_v7_1_20 -l cmpy_v6_0_26 -l xfft_v9_1_14 -l xil_defaultlib \
+vlog -work xpm  -incr "+incdir+../../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef" -l xpm -l xbip_utils_v3_0_14 -l axi_utils_v2_0_10 -l c_reg_fd_v12_0_10 -l xbip_dsp48_wrapper_v3_0_7 -l xbip_pipe_v3_0_10 -l c_addsub_v12_0_20 -l c_shift_ram_v12_0_19 -l mult_gen_v12_0_23 -l floating_point_v7_1_20 -l cmpy_v6_0_26 -l xfft_v9_1_14 -l xil_defaultlib \
 "/home/Sol/Xilinx/Vivado/2025.1/Vivado/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "/home/Sol/Xilinx/Vivado/2025.1/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 

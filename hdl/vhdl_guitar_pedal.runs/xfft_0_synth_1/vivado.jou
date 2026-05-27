@@ -3,22 +3,22 @@
 # SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Fri May 22 18:01:35 2026
-# Process ID         : 43373
-# Current directory  : /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1
+# Start of session at: Mon May 25 20:30:12 2026
+# Process ID         : 72956
+# Current directory  : /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1
 # Command line       : vivado -log xfft_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xfft_0.tcl
-# Log file           : /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1/xfft_0.vds
-# Journal file       : /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/xfft_0_synth_1/vivado.jou
+# Log file           : /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1/xfft_0.vds
+# Journal file       : /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/xfft_0_synth_1/vivado.jou
 # Running On         : Solstice
 # Platform           : Arch
 # Operating System   : Arch Linux
 # Processor Detail   : 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
-# CPU Frequency      : 2397.345 MHz
+# CPU Frequency      : 3200.032 MHz
 # CPU Physical cores : 4
 # CPU Logical cores  : 8
 # Host memory        : 16466 MB
 # Swap memory        : 17179 MB
 # Total Virtual      : 33646 MB
-# Available Virtual  : 25626 MB
+# Available Virtual  : 16124 MB
 #-----------------------------------------------------------
 source xfft_0.tcl -notrace

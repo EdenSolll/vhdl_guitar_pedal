@@ -102,6 +102,9 @@ architecture behavioral of guitar_pedal is
 	signal m_status_tvalid      : std_logic;
 	signal m_raw_status_tdata   : std_logic_vector(7 downto 0);
 	signal m_valid_status_tdata : std_logic_vector(7 downto 0);
+  signal m_axis_data_tlast    : std_logic;
+
+  signal word_delay           : std_logic;
 
   signal freqs : freq_buffer := (others => (others => '0'));
 
@@ -138,7 +141,7 @@ begin
       m_axis_data_tdata    => m_raw_data_tdata,
       m_axis_data_tuser    => m_data_tuser,
       m_axis_data_tvalid   => m_data_tvalid,
-      --	m_axis_data_tlast          => m_axis_data_tlast,
+      m_axis_data_tlast    => m_axis_data_tlast,
       m_axis_status_tdata  => m_raw_status_tdata,
       m_axis_status_tvalid => m_status_tvalid
       --	event_frame_started        => event_frame_started,
@@ -147,28 +150,36 @@ begin
       -- 	event_data_in_channel_halt => event_data_in_channel_halt
 	);
 
-	process
+	process(CLK100MHZ)
 	begin
-		wait until s_config_tready = '1';
-		s_config_tvalid <= '1';
-		wait until rising_edge(CLK100MHZ);
-		s_config_tvalid <= '0';
-	end process;
+    if rising_edge(CLK100MHZ) then
+      word_delay <= word_select;
+      if (word_select = '1' and word_delay = '0') then
+        if s_config_tready = '1' then
+          s_config_tvalid <= '1';
+        end if;
+      else
+        s_config_tvalid <= '0';
+      end if;
+    end if;
+  end process;
 
-	process
+	process(CLK100MHZ)
 	begin
-		wait until s_data_tready = '1';
-		s_data_tvalid <= '1';
-		wait until rising_edge(CLK100MHZ);
-		s_data_tvalid <= '0';
+    if rising_edge(CLK100MHZ) then
+      word_delay <= word_select;
+      if (word_select = '1' and word_delay = '0') then
+        if s_data_tready = '1' then
+          s_data_tvalid <= '1';
+        end if;
+      else
+        s_data_tvalid <= '0';
+      end if;
+    end if;
 	end process;
 
 	m_valid_status_tdata <= m_raw_status_tdata when m_status_tvalid = '1';
 
-	m_valid_data_tdata   <= m_raw_data_tdata when m_data_tvalid = '1';
-
-  freq_buffer_gen : for i in 0 to 1023 generate
-    freqs(i) <= m_valid_data_tdata;
-  end generate;
+	m_valid_data_tdata <= m_raw_data_tdata when m_data_tvalid = '1';
 
 end behavioral;

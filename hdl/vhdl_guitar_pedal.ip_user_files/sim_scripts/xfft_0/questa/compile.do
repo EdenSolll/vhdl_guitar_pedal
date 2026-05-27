@@ -29,7 +29,7 @@ vmap cmpy_v6_0_26 questa_lib/msim/cmpy_v6_0_26
 vmap xfft_v9_1_14 questa_lib/msim/xfft_v9_1_14
 vmap xil_defaultlib questa_lib/msim/xil_defaultlib
 
-vlog -work xpm -64 -incr -mfcu  -sv "+incdir+../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef" \
+vlog -work xpm -64 -incr -mfcu  -sv "+incdir+../../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef" \
 "/home/Sol/Xilinx/Vivado/2025.1/Vivado/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "/home/Sol/Xilinx/Vivado/2025.1/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
