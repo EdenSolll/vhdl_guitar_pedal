@@ -109,7 +109,7 @@ begin
 		s_axis_config_tdata  => s_config_tdata,
 		s_axis_config_tvalid => s_config_tvalid,
 		s_axis_config_tready => s_config_tready,
-		s_axis_data_tdata    => s_data_imaginary & r_data_avg,
+		s_axis_data_tdata    => s_data_imaginary & real_data,
 		s_axis_data_tvalid   => s_data_tvalid,
 		s_axis_data_tready   => s_data_tready,
 		s_axis_data_tlast    => s_tlast, -- ignore signal
