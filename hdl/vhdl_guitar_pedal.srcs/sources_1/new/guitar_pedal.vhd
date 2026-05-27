@@ -20,13 +20,14 @@ architecture behavioral of guitar_pedal is
 
 	signal word_select : std_logic;
 
-	signal l_data_rx   : std_logic_vector(23 downto 0);
-	signal r_data_rx   : std_logic_vector(23 downto 0);
-	signal l_data_tx   : std_logic_vector(23 downto 0);
-	signal r_data_tx   : std_logic_vector(23 downto 0);
+	signal l_data_rx   : std_logic_vector(d_width-1 downto 0);
+	signal r_data_rx   : std_logic_vector(d_width-1 downto 0);
+	signal l_data_tx   : std_logic_vector(d_width-1 downto 0);
+	signal r_data_tx   : std_logic_vector(d_width-1 downto 0);
 
-	signal data_sum    : unsigned(25 downto 0);
-	signal r_data_avg  : std_logic_vector(23 downto 0);
+	signal data_sum    : unsigned(d_width downto 0);
+	signal r_data_avg  : std_logic_vector(d_width-1 downto 0);
+	signal q1_data : std_logic_vector(d_width-1 downto 0);
 
 	component i2s_transceiver is
 		generic (
@@ -57,7 +58,7 @@ architecture behavioral of guitar_pedal is
 	component polar_fft is
 		generic (
 			fft_len : integer := 1024;
-			n       : integer := depth;
+			n       : integer := d_width;
 			m       : integer := 24
 		);
 		port (
@@ -71,6 +72,8 @@ architecture behavioral of guitar_pedal is
 begin
 
 	r_data_avg <= std_logic_vector(resize(shift_right(resize(unsigned(l_data_rx), 25) + resize(unsigned(r_data_rx), 25), 1), 24)); -- averages the left and right channels
+
+	q1_data <= r_data_avg(d_width-1) & (((not r_data_avg) + '1') >> 1);
 
 	m_clk : clk_wiz_0
 	port map(

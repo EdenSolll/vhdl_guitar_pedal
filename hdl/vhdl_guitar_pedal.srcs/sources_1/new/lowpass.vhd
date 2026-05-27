@@ -7,7 +7,7 @@ use work.all;
 entity lowpass is
     generic (
         fft_len : integer := 1024;
-        n : integer := depth;
+        n : integer := d_width;
         m : integer := 24
     );
     port (

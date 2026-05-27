@@ -8,7 +8,7 @@ use work.all;
 entity polar_fft is
 	generic (
 		fft_len : integer := 1024;
-		n       : integer := depth;
+		n       : integer := d_width;
 		m       : integer := 24
 	);
 	port (
