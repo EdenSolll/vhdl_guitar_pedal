@@ -1,0 +1,2 @@
+cordic_1.vhd,vhdl,xil_defaultlib,../../../../vhdl_guitar_pedal.gen/sources_1/ip/cordic_1/sim/cordic_1.vhd,incdir="../../../../../../Xilinx/Vivado/2025.1/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v

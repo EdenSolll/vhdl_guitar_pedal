@@ -15,14 +15,16 @@ entity polar_fft is
 		clk         : in std_logic;
 		rst         : in std_logic;
 		word_select : in std_logic;
-		real_data   : in std_logic_vector(23 downto 0)
+		real_data   : in std_logic_vector(23 downto 0);
+		phase_out     : out ram_24bit;
+		magnitude_out : out ram_24bit;
+		fft_ready     : out std_logic
 	);
 end entity polar_fft;
 
 architecture behavioral of polar_fft is
 	-- FFT configuration constants
 	constant s_config_tdata        : std_logic_vector(7 downto 0)  := "00000001";                 -- forward transform selected, optional fields not needed
-	constant s_iconfig_tdata       : std_logic_vector(7 downto 0)  := "00000000";                 -- inverse transform selected, optional fields not needed
 	constant s_data_imaginary      : std_logic_vector(23 downto 0) := "000000000000000000000000"; -- all input data is real
 
 	-- Foward FFT signals
@@ -58,6 +60,8 @@ architecture behavioral of polar_fft is
 	signal magnitude_ram           : ram_24bit := (others => (others => '0'));
 	signal phase_ram               : ram_24bit := (others => (others => '0'));
 
+    signal config_done             : std_logic; 
+    
 	component xfft_0
 		port (
 			aclk                       : in  std_logic;
@@ -73,12 +77,6 @@ architecture behavioral of polar_fft is
 			m_axis_data_tuser          : out std_logic_vector(23 downto 0);
 			m_axis_data_tvalid         : out std_logic;
 			m_axis_data_tlast          : out std_logic;
-			m_axis_status_tdata        : out std_logic_vector(7 downto 0);
-			m_axis_status_tvalid       : out std_logic;
-			event_frame_started        : out std_logic;
-			event_tlast_unexpected     : out std_logic;
-			event_tlast_missing        : out std_logic;
-			event_data_in_channel_halt : out std_logic
 		);
 	end component;
 
@@ -97,6 +95,25 @@ architecture behavioral of polar_fft is
 
 begin
 
+-- Configuration Boot sequence
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst = '1' then
+                s_config_tvalid <= '0';
+                config_done <= '0';
+            else
+                if config_done = '0' then
+                    s_config_tvalid <= '1';
+                    if s_config_tready = '1' then
+                        s_config_tvalid <= '0';
+                        config_done <= '1'; 
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+
 	forward_fft : xfft_0
 	port map(
 		aclk                 => clk,
@@ -107,17 +124,11 @@ begin
 		s_axis_data_tdata    => s_data_imaginary & real_data,
 		s_axis_data_tvalid   => s_data_tvalid,
 		s_axis_data_tready   => s_data_tready,
-		s_axis_data_tlast    => s_tlast, -- ignore signal
+		s_axis_data_tlast    => '0',
 		m_axis_data_tdata    => m_raw_data_tdata,
-		m_axis_data_tuser    => m_data_tuser,
+		m_axis_data_tuser    => open,
 		m_axis_data_tvalid   => m_data_tvalid,
-		m_axis_data_tlast    => m_axis_data_tlast,
-		m_axis_status_tdata  => m_raw_status_tdata,
-		m_axis_status_tvalid => m_status_tvalid
-		--	event_frame_started        => event_frame_started,
-		-- 	event_tlast_unexpected     => event_tlast_unexpected,
-		-- 	event_tlast_missing        => event_tlast_missing,
-		-- 	event_data_in_channel_halt => event_data_in_channel_halt
+		m_axis_data_tlast    => m_axis_data_tlast
 	);
 
   -- Ready FFT Input
@@ -127,12 +138,12 @@ begin
   begin
     if clk = '1' then
       if word_select /= ws_last then
-        divider <= not divider;
+        divider := not divider;
         if divider = '1' then
           s_data_tvalid <= '1';
         end if; -- divider = '1'
       end if; -- word_select /= ws_last
-      ws_last <= word_select;
+      ws_last := word_select;
     end if; --clk = '1'
   end process;
 
@@ -141,27 +152,22 @@ begin
     variable transmitted : std_logic := '0';
   begin
     if s_data_tready = '1' and s_data_tvalid = '1' then
-      transmitted <= '1';
+      transmitted := '1';
     else
       if transmitted = '1' then
-        transmitted <= '0';
+        transmitted := '0';
         s_data_tvalid <= '0';
       end if; -- transmitted = '1'
     end if; -- s_data_tready = '1'
   end process;
 
-
-	m_valid_status_tdata <= m_raw_status_tdata when m_status_tvalid = '1';
-
-	m_valid_data_tdata   <= m_raw_data_tdata when m_data_tvalid = '1';
-
-	rectangular_to_polar : cordic_0
+    rectangular_to_polar : cordic_0
 	port map(
-		aclk                    => aclk,
-		aresetn                 => aresetn,
-		s_axis_cartesian_tvalid => s_axis_cartesian_tvalid,
-		s_axis_cartesian_tlast  => s_axis_cartesian_tlast,
-		s_axis_cartesian_tdata  => rectangular_tdata,
+		aclk                    => clk,
+		aresetn                 => (not rst),
+		s_axis_cartesian_tvalid => m_data_tvalid,
+		s_axis_cartesian_tlast  => m_axis_data_tlast,
+		s_axis_cartesian_tdata  => m_raw_data_tdata,
 		m_axis_dout_tvalid      => m_axis_dout_tvalid,
 		m_axis_dout_tlast       => m_axis_dout_tlast,
 		m_axis_dout_tdata       => polar_tdata
@@ -171,16 +177,21 @@ begin
 		variable write_addr : integer range 0 to 1023 := 0;
 	begin
 		if rising_edge(clk) then
+			fft_ready <= '0';
 			if m_axis_dout_tvalid = '1' then
 				phase_ram(write_addr)     <= polar_tdata(47 downto 24); -- top 24 bits = phase
 				magnitude_ram(write_addr) <= polar_tdata(23 downto 0);  -- bottom 24 bits = magnitude
 				if m_axis_dout_tlast = '1' then
 					write_addr := 0;
+					fft_ready <= '1';
 				else
 					write_addr := write_addr + 1;
 				end if;
 			end if;
 		end if;
 	end process;
+	
+	phase_out     <= phase_ram;
+	magnitude_out <= magnitude_ram;
 
 end architecture behavioral;

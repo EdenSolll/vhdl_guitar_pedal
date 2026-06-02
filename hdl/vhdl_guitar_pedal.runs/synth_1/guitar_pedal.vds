@@ -1,0 +1,77 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Tue Jun  2 16:24:00 2026
+# Process ID         : 269207
+# Current directory  : /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1
+# Command line       : vivado -log guitar_pedal.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source guitar_pedal.tcl
+# Log file           : /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/guitar_pedal.vds
+# Journal file       : /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/vivado.jou
+# Running On         : Solstice
+# Platform           : Arch
+# Operating System   : Arch Linux
+# Processor Detail   : 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+# CPU Frequency      : 3123.323 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 16466 MB
+# Swap memory        : 17179 MB
+# Total Virtual      : 33646 MB
+# Available Virtual  : 14779 MB
+#-----------------------------------------------------------
+source guitar_pedal.tcl -notrace
+Command: synth_design -top guitar_pedal -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 269253
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2110.945 ; gain = 439.828 ; free physical = 531 ; free virtual = 12927
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'guitar_pedal' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:16]
+WARNING: [Synth 8-5640] Port 'clk_out2' is missing in component declaration [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:70]
+WARNING: [Synth 8-5640] Port 'locked' is missing in component declaration [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:70]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/clk_wiz_0_stub.vhdl:6' bound to instance 'm_clk' of component 'clk_wiz_0' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:134]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/clk_wiz_0_stub.vhdl:19]
+	Parameter mclk_sclk_ratio bound to: 4 - type: integer 
+	Parameter sclk_ws_ratio bound to: 64 - type: integer 
+	Parameter d_width bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'i2s_transceiver' declared at '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/i2s_transceiver.vhd:9' bound to instance 'i2s_transceiver_0' of component 'i2s_transceiver' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'i2s_transceiver' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/i2s_transceiver.vhd:28]
+	Parameter mclk_sclk_ratio bound to: 4 - type: integer 
+	Parameter sclk_ws_ratio bound to: 64 - type: integer 
+	Parameter d_width bound to: 24 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'i2s_transceiver' (0#1) [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/i2s_transceiver.vhd:28]
+	Parameter fft_len bound to: 1024 - type: integer 
+	Parameter n bound to: 24 - type: integer 
+	Parameter m bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'polar_fft' declared at '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:8' bound to instance 'polar_fft_0' of component 'polar_fft' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:160]
+INFO: [Synth 8-638] synthesizing module 'polar_fft' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:25]
+	Parameter fft_len bound to: 1024 - type: integer 
+	Parameter n bound to: 24 - type: integer 
+	Parameter m bound to: 24 - type: integer 
+WARNING: [Synth 8-5640] Port 'event_frame_started' is missing in component declaration [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:65]
+WARNING: [Synth 8-5640] Port 'event_tlast_unexpected' is missing in component declaration [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:65]
+WARNING: [Synth 8-5640] Port 'event_tlast_missing' is missing in component declaration [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:65]
+WARNING: [Synth 8-5640] Port 'event_data_in_channel_halt' is missing in component declaration [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:65]
+INFO: [Synth 8-3491] module 'xfft_0' declared at '/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/xfft_0_stub.vhdl:6' bound to instance 'forward_fft' of component 'xfft_0' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:117]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/xfft_0_stub.vhdl:35]
+ERROR: [Synth 8-549] port width mismatch for port 's_axis_config_tdata': port width = 24, actual width = 8 [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/xfft_0_stub.vhdl:10]
+ERROR: [Synth 8-549] port width mismatch for port 'm_axis_data_tuser': port width = 16, actual width = 24 [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/xfft_0_stub.vhdl:18]
+ERROR: [Synth 8-285] failed synthesizing module 'xfft_0' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/synth_1/.Xil/Vivado-269207-Solstice/realtime/xfft_0_stub.vhdl:35]
+ERROR: [Synth 8-285] failed synthesizing module 'polar_fft' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/polar_fft.vhd:25]
+ERROR: [Synth 8-285] failed synthesizing module 'guitar_pedal' [/home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/guitar_pedal.vhd:16]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2199.914 ; gain = 528.797 ; free physical = 404 ; free virtual = 12800
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+16 Infos, 6 Warnings, 0 Critical Warnings and 6 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Tue Jun  2 16:24:17 2026...
