@@ -26,7 +26,7 @@ end entity rectangular_ifft;
 
 architecture behavioral of rectangular_ifft is
 
-    constant s_iconfig_tdata : std_logic_vector(7 downto 0) := "00000000"; 
+    constant s_iconfig_tdata : std_logic_vector(23 downto 0) := "000000000000000000000000"; -- configure fft for inverse transform 
     constant s_data_imaginary      : std_logic_vector(23 downto 0) := "000000000000000000000000"; -- all input data is real
 
     -- IFFT Configuration Signals
@@ -48,7 +48,7 @@ architecture behavioral of rectangular_ifft is
 		port (
 			aclk                       : in  std_logic;
 			aresetn                    : in  std_logic;
-			s_axis_config_tdata        : in  std_logic_vector(7 downto 0);
+			s_axis_config_tdata        : in  std_logic_vector(23 downto 0);
 			s_axis_config_tvalid       : in  std_logic;
 			s_axis_config_tready       : out std_logic;
 			s_axis_data_tdata          : in  std_logic_vector(47 downto 0);
@@ -56,9 +56,9 @@ architecture behavioral of rectangular_ifft is
 			s_axis_data_tready         : out std_logic;
 			s_axis_data_tlast          : in  std_logic;
 			m_axis_data_tdata          : out std_logic_vector(47 downto 0);
-			m_axis_data_tuser          : out std_logic_vector(23 downto 0);
+			m_axis_data_tuser          : out std_logic_vector(15 downto 0);
 			m_axis_data_tvalid         : out std_logic;
-			m_axis_data_tlast          : out std_logic;
+			m_axis_data_tlast          : out std_logic
 		);
 	end component;
 
@@ -105,7 +105,7 @@ begin
         s_axis_phase_tdata      => input_phase_stream,
         s_axis_cartesian_tvalid => input_valid,
         s_axis_cartesian_tlast  => input_last,
-        s_axis_cartesian_tdata  => input_magnitude_stream,
+        s_axis_cartesian_tdata  => s_data_imaginary & input_magnitude_stream,
         m_axis_dout_tvalid      => cordic_dout_tvalid,
         m_axis_dout_tlast       => cordic_dout_tlast,
         m_axis_dout_tdata       => cordic_dout_tdata
