@@ -1,0 +1,60 @@
+DISSOLVE_GENOME: GENOME polar_fft__GB0_tempName GENOME polar_fft__GB1_tempName GENOME muxpart__1026_pitch_shift_tempName GENOME pitch_shift__GB0_tempName GENOME pitch_shift__GB2_tempName GENOME pitch_shift__GB3_tempName GENOME guitar_pedal__GC0_tempName GENOME guitar_pedal__GC0 GENOME polar_fft__GB0 GENOME polar_fft__GB1 GENOME muxpart__1026_pitch_shift GENOME pitch_shift__GB0 GENOME pitch_shift__GB2 GENOME pitch_shift__GB3 GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2
+REEXTRACT_GENOME: GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2 GENOME muxpart__1026_pitch_shift GENOME pitch_shift__GB0 GENOME pitch_shift__GB2 GENOME polar_fft__GB1
+INST pitch_shift__GB3 PIN 0: INST pitch_shift__GB3 PIN 1 INST pitch_shift__GB3 PIN 1 TYPE 2 INST pitch_shift__GB2 PIN 55 TYPE 4
+INST pitch_shift__GB3 PIN 1: INST pitch_shift__GB3 PIN 0 GENOME pitch_shift__GB3 PIN 1
+GENOME pitch_shift__GB3 PIN 1: INST pitch_shift__GB3 PIN 1
+GENOME pitch_shift__GB3 PIN 0: INST pitch_shift__GB3 PIN 0
+GENOME NON_GENOME PIN 106: GENOME NON_GENOME PIN 0 GENOME NON_GENOME PIN 105
+GENOME NON_GENOME PIN 0: GENOME NON_GENOME PIN 106 GENOME NON_GENOME PIN 1
+INST pitch_shift__GB0 PIN 44: GENOME pitch_shift__GB0 PIN 44
+INST pitch_shift__GB0 PIN 45: GENOME pitch_shift__GB0 PIN 45
+INST pitch_shift__GB0 PIN 46: GENOME pitch_shift__GB0 PIN 46
+INST pitch_shift__GB0 PIN 47: GENOME pitch_shift__GB0 PIN 47
+INST pitch_shift__GB0 PIN 48: GENOME pitch_shift__GB0 PIN 48
+INST pitch_shift__GB0 PIN 49: GENOME pitch_shift__GB0 PIN 49
+INST pitch_shift__GB0 PIN 50: GENOME pitch_shift__GB0 PIN 50
+INST pitch_shift__GB0 PIN 51: GENOME pitch_shift__GB0 PIN 51
+INST pitch_shift__GB0 PIN 52: GENOME pitch_shift__GB0 PIN 52
+INST pitch_shift__GB0 PIN 53: GENOME pitch_shift__GB0 PIN 53
+INST pitch_shift__GB0 PIN 54: GENOME pitch_shift__GB0 PIN 54
+INST pitch_shift__GB0 PIN 55: GENOME pitch_shift__GB0 PIN 55
+INST pitch_shift__GB0 PIN 56: GENOME pitch_shift__GB0 PIN 56
+INST pitch_shift__GB0 PIN 57: GENOME pitch_shift__GB0 PIN 57
+INST pitch_shift__GB0 PIN 58: GENOME pitch_shift__GB0 PIN 58
+INST pitch_shift__GB0 PIN 59: GENOME pitch_shift__GB0 PIN 59
+INST pitch_shift__GB0 PIN 61: GENOME pitch_shift__GB0 PIN 61
+INST pitch_shift__GB0 PIN 62: GENOME pitch_shift__GB0 PIN 62
+INST pitch_shift__GB0 PIN 63: GENOME pitch_shift__GB0 PIN 63
+INST pitch_shift__GB0 PIN 64: GENOME pitch_shift__GB0 PIN 64
+INST pitch_shift__GB0 PIN 65: GENOME pitch_shift__GB0 PIN 65
+INST pitch_shift__GB0 PIN 66: GENOME pitch_shift__GB0 PIN 66
+INST pitch_shift__GB0 PIN 67: GENOME pitch_shift__GB0 PIN 67
+INST pitch_shift__GB0 PIN 68: GENOME pitch_shift__GB0 PIN 68
+INST pitch_shift__GB0 PIN 69: GENOME pitch_shift__GB0 PIN 69
+INST pitch_shift__GB0 PIN 70: GENOME pitch_shift__GB0 PIN 70
+INST pitch_shift__GB0 PIN 71: GENOME pitch_shift__GB0 PIN 71
+INST pitch_shift__GB0 PIN 72: GENOME pitch_shift__GB0 PIN 72
+INST pitch_shift__GB0 PIN 73: GENOME pitch_shift__GB0 PIN 73
+INST pitch_shift__GB0 PIN 74: GENOME pitch_shift__GB0 PIN 74
+INST pitch_shift__GB0 PIN 75: GENOME pitch_shift__GB0 PIN 75
+INST pitch_shift__GB0 PIN 76: GENOME pitch_shift__GB0 PIN 76
+INST pitch_shift__GB0 PIN 77: GENOME pitch_shift__GB0 PIN 77
+INST pitch_shift__GB0 PIN 78: GENOME pitch_shift__GB0 PIN 78
+INST pitch_shift__GB2 PIN 108: GENOME pitch_shift__GB2 PIN 108 INST pitch_shift__GB3 PIN 0 TYPE 5
+INST pitch_shift__GB2 PIN 55: GENOME pitch_shift__GB2 PIN 55
+GENOME NON_GENOME PIN 1: GENOME NON_GENOME PIN 53 GENOME NON_GENOME PIN 0
+GENOME NON_GENOME PIN 53: GENOME NON_GENOME PIN 1
+GENOME NON_GENOME PIN 55: GENOME NON_GENOME PIN 108
+GENOME NON_GENOME PIN 108: GENOME NON_GENOME PIN 55
+INST pitch_shift__GB2 PIN 1: INST pitch_shift__GB2 PIN 53 TYPE 2 INST pitch_shift__GB0 PIN 105 TYPE 4
+INST pitch_shift__GB0 PIN 106: GENOME pitch_shift__GB0 PIN 106 INST pitch_shift__GB2 PIN 1 TYPE 5
+INST pitch_shift__GB0 PIN 105: GENOME pitch_shift__GB0 PIN 105
+GENOME NON_GENOME PIN 105: GENOME NON_GENOME PIN 106
+INST pitch_shift__GB2 PIN 53: GENOME pitch_shift__GB2 PIN 53
+pitch_shift__GB2: GENOME pitch_shift__GB0 GENOME muxpart__1026_pitch_shift GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2
+pitch_shift__GB0: GENOME pitch_shift__GB2 GENOME muxpart__1026_pitch_shift GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2
+muxpart__1026_pitch_shift: GENOME pitch_shift__GB2 GENOME pitch_shift__GB0 GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2
+guitar_pedal_GT0: GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2 GENOME polar_fft__GB1 GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT3 GENOME guitar_pedal_GT4 GENOME guitar_pedal_GT5
+guitar_pedal_GT1: GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT2 GENOME polar_fft__GB1 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT3 GENOME guitar_pedal_GT4 GENOME guitar_pedal_GT5
+guitar_pedal_GT2: GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME polar_fft__GB1 GENOME guitar_pedal_GT2 GENOME guitar_pedal_GT3 GENOME guitar_pedal_GT4 GENOME guitar_pedal_GT5
+polar_fft__GB1: GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2 GENOME guitar_pedal_GT3 GENOME guitar_pedal_GT4 GENOME guitar_pedal_GT5

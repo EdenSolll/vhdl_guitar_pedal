@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.MATH_REAL.all;
 use work.globals.all;
-use work.all;
+use work.hanning_window_rom.all;
 
 entity polar_fft is
 	generic (
@@ -36,6 +36,7 @@ architecture behavioral of polar_fft is
 	signal s_config_tready         : std_logic;
 	signal s_data_tvalid           : std_logic;
 	signal s_data_tready           : std_logic;
+	signal s_data_tlast            : std_logic;
 	signal m_raw_data_tdata        : std_logic_vector(47 downto 0);
 	signal m_valid_data_tdata      : std_logic_vector(47 downto 0);
 	signal m_data_tvalid           : std_logic;
@@ -60,6 +61,14 @@ architecture behavioral of polar_fft is
 	signal phase_ram               : ram_24bit := (others => (others => '0'));
 
     signal config_done             : std_logic;
+
+    -- hanning window signals
+
+    signal audio_signed    : signed(23 downto 0);
+    signal window_coeff    : signed(23 downto 0);
+    signal windowed_audio  : std_logic_vector(23 downto 0);
+    signal sample_index    : integer range 0 to 1023 := 0;
+    signal ws_last         : std_logic := '0';
 
 	component xfft_0
 		port (
@@ -113,6 +122,52 @@ begin
         end if;
     end process;
 
+    -- Apply hanning window constants
+
+process(clk)
+    variable multiply_result : signed(47 downto 0);
+    begin
+        if rising_edge(clk) then
+            if rst = '1' then
+                sample_index      <= 0;
+                ws_last           <= '0';
+                s_data_tvalid     <= '0';
+                s_data_tlast <= '0';
+                windowed_audio    <= (others => '0');
+            else
+                -- Automatic handshake clearing
+                if s_data_tready = '1' and s_data_tvalid = '1' then
+                    s_data_tvalid <= '0';
+                end if;
+
+                -- Trigger when a new I2S audio sample is ready
+                if word_select /= ws_last then
+
+                    multiply_result := hanning_rom(sample_index) * signed(real_data);
+
+                    -- consider adding convergent rounding to multiplication instead of truncating
+
+                    windowed_audio <= std_logic_vector(multiply_result(46 downto 23));
+                    -- set valid data flag
+                    s_data_tvalid <= '1';
+
+                    -- Manage the boundary conditions
+                    if sample_index = 1023 then
+                        s_data_tlast <= '1';
+                        sample_index <= 0;
+                    else
+                        s_data_tlast <= '0';
+                        sample_index <= sample_index + 1;
+                    end if;
+                else
+                    s_data_tlast <= '0';
+                end if;
+
+                ws_last <= word_select;
+            end if;
+        end if;
+    end process;
+
 	forward_fft : xfft_0
 	port map(
 		aclk                 => clk,
@@ -120,40 +175,15 @@ begin
 		s_axis_config_tdata  => s_config_tdata,
 		s_axis_config_tvalid => s_config_tvalid,
 		s_axis_config_tready => s_config_tready,
-		s_axis_data_tdata    => s_data_imaginary & real_data,
+		s_axis_data_tdata    => s_data_imaginary & windowed_audio,
 		s_axis_data_tvalid   => s_data_tvalid,
 		s_axis_data_tready   => s_data_tready,
-		s_axis_data_tlast    => '0',
+		s_axis_data_tlast    => s_data_tlast,
 		m_axis_data_tdata    => m_raw_data_tdata,
 		m_axis_data_tuser    => open,
 		m_axis_data_tvalid   => m_data_tvalid,
 		m_axis_data_tlast    => m_axis_data_tlast
 	);
-
-  -- Ready FFT Input
-  process(clk) is
-      variable divider : std_logic := '0';
-      variable ws_last : std_logic;
-  begin
-    if rising_edge(clk) then
-        if rst = '1' then
-          s_data_tvalid <= '0';
-          ws_last :=  '0';
-          divider := '0';
-        else
-          if s_data_tready = '1' and s_data_tvalid = '1' then
-            s_data_tvalid <= '0';
-          end if;
-          if word_select /= ws_last then
-            divider := not divider;
-            if divider = '1' then
-              s_data_tvalid <= '1';
-            end if; -- divider = '1'
-          end if; -- word_select /= ws_last
-        ws_last := word_select;
-      end if;
-    end if; --clk = '1'
-  end process;
 
   rectangular_to_polar : cordic_0
 	port map(

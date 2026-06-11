@@ -1,0 +1,6 @@
+DISSOLVE_GENOME: GENOME polar_fft__GB0_tempName GENOME polar_fft__GB1_tempName GENOME muxpart__1026_pitch_shift_tempName GENOME pitch_shift__GB0_tempName GENOME pitch_shift__GB2_tempName GENOME pitch_shift__GB3_tempName GENOME guitar_pedal__GC0_tempName GENOME guitar_pedal__GC0 GENOME polar_fft__GB0 GENOME polar_fft__GB1 GENOME muxpart__1026_pitch_shift GENOME pitch_shift__GB0 GENOME pitch_shift__GB2 GENOME pitch_shift__GB3
+REEXTRACT_GENOME: GENOME guitar_pedal_GT0 GENOME guitar_pedal_GT1 GENOME guitar_pedal_GT2 GENOME muxpart__1026_pitch_shift GENOME pitch_shift__GB0 GENOME pitch_shift__GB2 GENOME polar_fft__GB1
+INST pitch_shift__GB3 PIN 0: INST pitch_shift__GB3 PIN 1
+INST pitch_shift__GB3 PIN 1: INST pitch_shift__GB3 PIN 0 GENOME pitch_shift__GB3 PIN 1
+GENOME pitch_shift__GB3 PIN 1: INST pitch_shift__GB3 PIN 1
+GENOME pitch_shift__GB3 PIN 0: INST pitch_shift__GB3 PIN 0

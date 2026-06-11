@@ -1,0 +1,5 @@
+xilinx rtfpga
+rt::do_reinfer_area_combined 1
+DSP Report: Generating DSP p_2_out, operation Mode is: (C or 0)+A*B.
+DSP Report: operator p_1_out is absorbed into DSP p_2_out.
+DSP Report: operator p_0_out is absorbed into DSP p_2_out.

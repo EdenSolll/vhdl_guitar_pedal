@@ -8,8 +8,18 @@ entity guitar_pedal is
 	port (
 		CLK100MHZ : in  std_logic;
 		rst       : in  std_logic;
-		sd_rx     : in  std_logic;
-		sd_tx     : out std_logic
+
+		-- Pmod I2S2 DAC (Line Out)
+        tx_mclk   : out std_logic; -- Pin 1: Master Clock
+        tx_lrck   : out std_logic; -- Pin 2: Word Select
+        tx_sclk   : out std_logic; -- Pin 3: Serial Clock
+        tx_sd     : out std_logic; -- Pin 4: Serial Data In
+
+        -- Pmod I2S2 ADC (Line In)
+        rx_mclk   : out std_logic; -- Pin 7: Master Clock
+        rx_lrck   : out std_logic; -- Pin 8: Word Select
+        rx_sclk   : out std_logic; -- Pin 9: Serial Clock
+        rx_sd     : in  std_logic  -- Pin 10: Serial Data Out
 	);
 end guitar_pedal;
 
@@ -26,29 +36,31 @@ architecture structural of guitar_pedal is
 	signal l_data_tx   : std_logic_vector(d_width-1 downto 0);
 	signal r_data_tx   : std_logic_vector(d_width-1 downto 0);
 	signal r_data_avg  : std_logic_vector(d_width-1 downto 0);
-	
-	signal data_sum    : unsigned(d_width downto 0);
 
 	signal fft_phase_ram   : ram_24bit;
 	signal fft_mag_ram     : ram_24bit;
 	signal fft_frame_ready : std_logic;
-	
+
 	signal ps_phase_stream : std_logic_vector(23 downto 0);
 	signal ps_magnitude_stream   : std_logic_vector(23 downto 0);
 	signal ps_valid        : std_logic;
 	signal ps_last         : std_logic;
-	
+
     signal playback_ram    : audio_buffer_t := (others => (others => '0'));
 	signal ifft_valid      : std_logic;
-    signal ifft_write_addr : integer range 0 to 1023 := 0;
-	signal i2s_read_addr   : integer range 0 to 1023 := 0;
-	signal ws_delay        : std_logic := '0';
-	
+
 	signal processed_audio : std_logic_vector(23 downto 0);
-	
+
+	-- Overlap add process signals
+
+    signal frame_start_addr : unsigned(9 downto 0) := (others => '0');
+    signal write_offset     : unsigned(9 downto 0) := (others => '0');
+    signal i2s_read_addr    : unsigned(9 downto 0) := (others => '0');
+	signal ws_delay        : std_logic := '0';
+
     constant ctrl_pitch_shift : signed(15 downto 0) := X"0180";       -- Q10.8 = 1.5
 	constant ctrl_inv_shift   : unsigned(17 downto 0) := "00" & X"AAB0"; -- 1 / 1.5 = 0.6666 (Q10.8)
-	
+
 	component i2s_transceiver is
 		generic (
 			mclk_sclk_ratio : integer := 4;
@@ -91,7 +103,7 @@ architecture structural of guitar_pedal is
             fft_ready     : out std_logic
 		);
 	end component;
-	
+
     component rectangular_ifft is
 	generic (
 		fft_len : integer := 1024;
@@ -110,7 +122,7 @@ architecture structural of guitar_pedal is
 		output_last : out std_logic
 	);
     end component;
-    
+
     component pitch_shift is
 		port (
 			clk                     : in  std_logic;
@@ -128,6 +140,8 @@ architecture structural of guitar_pedal is
 	end component;
 
 begin
+
+    -- Average the left and right channels so convert audio to mono
 
 	r_data_avg <= std_logic_vector(resize(shift_right(resize(unsigned(l_data_rx), 25) + resize(unsigned(r_data_rx), 25), 1), 24)); -- averages the left and right channels
 
@@ -149,8 +163,8 @@ begin
 		mclk      => master_clk,
 		sclk      => serial_clk,
 		ws        => word_select,
-		sd_tx     => sd_tx,
-		sd_rx     => sd_rx,
+		sd_tx     => tx_sd,
+		sd_rx     => rx_sd,
 		l_data_tx => l_data_tx,
 		r_data_tx => r_data_tx,
 		l_data_rx => l_data_rx,
@@ -172,7 +186,7 @@ begin
 		magnitude_out => fft_mag_ram,
 		fft_ready     => fft_frame_ready
 	);
-	
+
 	pitch_shifter_0 : pitch_shift
 	port map(
 		clk                     => CLK100MHZ,
@@ -187,7 +201,7 @@ begin
 		output_valid            => ps_valid,
 		output_last             => ps_last
 	);
-	
+
 	rectangular_ifft_0 : rectangular_ifft
 	port map(
 		clk                    => CLK100MHZ,
@@ -200,39 +214,64 @@ begin
 		output_valid           => ifft_valid,
 		output_last            => open
 	);
-	
-	process(CLK100MHZ)
-	begin
-		if rising_edge(CLK100MHZ) then
-			-- The IFFT pulses this flag when a new sample shoots out
-			if ifft_valid = '1' then 
-				playback_ram(ifft_write_addr) <= processed_audio;
-				
-				if ifft_write_addr = 1023 then
-					ifft_write_addr <= 0;
-				else
-					ifft_write_addr <= ifft_write_addr + 1;
-				end if;
-			end if;
-		end if;
-	end process;
 
-	process(master_clk)
-	begin
-		if rising_edge(master_clk) then
-			ws_delay <= word_select;
-			-- Detect the falling edge of the Word Select clock 
-			if ws_delay = '1' and word_select = '0' then
-				if i2s_read_addr = 1023 then
-					i2s_read_addr <= 0;
-				else
-					i2s_read_addr <= i2s_read_addr + 1;
-				end if;
-			end if;
-		end if;
-	end process;
-	
-	r_data_tx <= playback_ram(i2s_read_addr);
-	l_data_tx <= playback_ram(i2s_read_addr);
+	-- Overlap-Add Buffer Process
+    process(CLK100MHZ)
+        variable absolute_write_addr : integer range 0 to 1023;
+        variable current_val         : signed(23 downto 0);
+        variable sum_val             : signed(23 downto 0);
+    begin
+        if rising_edge(CLK100MHZ) then
+
+
+            ws_delay <= word_select;
+
+            -- Detect the falling edge of Word Select
+            if ws_delay = '1' and word_select = '0' then
+
+                -- Route the fully accumulated audio out to the I2S transmitter
+                r_data_tx <= playback_ram(to_integer(i2s_read_addr));
+                l_data_tx <= playback_ram(to_integer(i2s_read_addr));
+
+                -- CLEAR the memory address so it is clean for the next frames
+                playback_ram(to_integer(i2s_read_addr)) <= (others => '0');
+
+                -- Advance read pointer (naturally wraps back to 0)
+                i2s_read_addr <= i2s_read_addr + 1;
+            end if;
+
+
+            if ifft_valid = '1' then
+
+                -- Calculate circular address: Frame Start + current offset
+                absolute_write_addr := to_integer(frame_start_addr + write_offset);
+
+                -- Read existing data, add new sample, and write back
+                current_val := signed(playback_ram(absolute_write_addr));
+                sum_val     := current_val + signed(processed_audio);
+                playback_ram(absolute_write_addr) <= std_logic_vector(sum_val);
+
+                -- Manage write offset and frame hopping
+                if write_offset = 1023 then
+                    write_offset <= (others => '0');
+                    -- Shift the start of the next frame forward by the Hop Size (256)
+                    frame_start_addr <= frame_start_addr + 256;
+                else
+                    write_offset <= write_offset + 1;
+                end if;
+            end if;
+
+        end if;
+    end process;
+
+    -- Send internal clocks out to the DAC (Line Out)
+    tx_mclk <= master_clk;
+    tx_lrck <= word_select;
+    tx_sclk <= serial_clk;
+
+    -- Send internal clocks out to the ADC (Line In)
+    rx_mclk <= master_clk;
+    rx_lrck <= word_select;
+    rx_sclk <= serial_clk;
 
 end structural;

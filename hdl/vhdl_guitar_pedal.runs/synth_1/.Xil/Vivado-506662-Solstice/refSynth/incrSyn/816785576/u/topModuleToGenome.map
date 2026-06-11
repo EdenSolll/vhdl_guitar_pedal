@@ -1,0 +1,3 @@
+guitar_pedal: guitar_pedal__GC0, pitch_shift, polar_fft, 
+pitch_shift: pitch_shift__GB3, pitch_shift__GB2, pitch_shift__GB0, muxpart__1026_pitch_shift, 
+polar_fft: polar_fft__GB1, polar_fft__GB0, 

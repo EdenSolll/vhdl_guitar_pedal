@@ -56,7 +56,10 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 2
 set_param general.usePosixSpawnForFork 1
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -75,6 +78,7 @@ set_property ip_output_repo /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.ca
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_vhdl -library xil_defaultlib /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/hanning_window_rom.vhd
 read_vhdl -vhdl2019 -library xil_defaultlib {
   /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/globals.vhd
   /home/Sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/new/chord_pitch_shift.vhd

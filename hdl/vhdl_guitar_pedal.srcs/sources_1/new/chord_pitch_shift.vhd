@@ -70,26 +70,26 @@ begin
 					when PROCESSING =>
 						ram_index := to_integer(virtual_read_index(17 downto 8));
 
-                        if write_index < 512 then 
+                        if write_index < 512 then
                             if ram_index < 512 then
-    
+
                                 expected_advance      := signed(shift_left(resize(virtual_read_index, 24), 14)); -- calculate expected advance using the fractional pointer
-    
+
                                 -- Phase tracking math (Automatic Modulo 2*PI wrapping)
                                 phase_difference      := signed(input_phase(ram_index)) - signed(previous_phase(ram_index));
                                 phase_deviation       := phase_difference - expected_advance;
                                 unwrapped_phase       := resize(expected_advance, 26) + resize(phase_deviation, 26);
-    
+
                                 scaled_phase          := unwrapped_phase * pitch_shift;
-    
+
                                 -- Accumulate the phase into the output bin
                                 new_accumulated_phase := signed(accumulated_phase(write_index)) + scaled_phase;
-    
+
                                 -- Save the outputs
                                 accumulated_phase(write_index) <= std_logic_vector(new_accumulated_phase);
                                 previous_phase(write_index)      <= input_phase(write_index);
                                 output_phase_stream            <= std_logic_vector(new_accumulated_phase(35 downto 12));
-    
+
                                 -- move the magnitude to the new bin
                                 output_magnitude_stream        <= input_magnitude(ram_index);
                                 output_valid                   <= '1';
@@ -99,7 +99,7 @@ begin
                                 output_magnitude_stream <= (others => '0');
                                 output_valid            <= '1';
                             end if;
-                        else 
+                        else
                                -- Negative Frequencies (Bins 512 to 1023) just set to zeros
                             output_phase_stream     <= (others => '0');
                             output_magnitude_stream <= (others => '0');
