@@ -6,6 +6,12 @@
 ./python_scripts/env
 ./python_scripts/lib
 ./python_scripts/lib64
-./hdl/vhdl_guitar_pedal.sim/*
-./hdl/vhdl_guitar_pedal.hw/*
-./hdl/vhdl_guitar_pedal.runs/*
+
+./hdl/vhdl_guitar_pedal.sim/
+./hdl/vhdl_guitar_pedal.hw/
+./hdl/vhdl_guitar_pedal.runs/
+
+*.wdb
+*.log
+*.pb
+xsim.dir/
