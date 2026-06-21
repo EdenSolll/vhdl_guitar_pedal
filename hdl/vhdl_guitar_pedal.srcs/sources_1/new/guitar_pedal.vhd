@@ -8,7 +8,10 @@ entity guitar_pedal is
 	port (
 		CLK100MHZ : in  std_logic;
 		rst       : in  std_logic;
-
+		
+		-- pitch shifting inpits
+		pitch_index : in std_logic_vector (2 downto 0); 
+		
 		-- Pmod I2S2 DAC (Line Out)
         tx_mclk   : out std_logic; -- Pin 1: Master Clock
         tx_lrck   : out std_logic; -- Pin 2: Word Select
@@ -50,16 +53,16 @@ architecture structural of guitar_pedal is
 	signal ifft_valid      : std_logic;
 
 	signal processed_audio : std_logic_vector(23 downto 0);
+	
+	-- pitch shifting signals
+	signal pitch_shift_ctl : signed(15 downto 0);
+	signal inverse_pitch_shift_ctl : unsigned(17 downto 0); 
 
-	-- Overlap add process signals
-
+	-- overlap add process signals
     signal frame_start_addr : unsigned(9 downto 0) := (others => '0');
     signal write_offset     : unsigned(9 downto 0) := (others => '0');
     signal i2s_read_addr    : unsigned(9 downto 0) := (others => '0');
 	signal ws_delay        : std_logic := '0';
-
-    constant ctrl_pitch_shift : signed(15 downto 0) := X"0180";       -- Q10.8 = 1.5
-	constant ctrl_inv_shift   : unsigned(17 downto 0) := "00" & X"AAB0"; -- 1 / 1.5 = 0.6666 (Q10.8)
 
 	component i2s_transceiver is
 		generic (
@@ -103,6 +106,15 @@ architecture structural of guitar_pedal is
             fft_ready     : out std_logic
 		);
 	end component;
+	
+	component pitch_rom is 
+	port( 
+	    clk                 : in  std_logic;
+        pitch_index         : in  std_logic_vector(2 downto 0); 
+        pitch_shift         : out signed(15 downto 0);
+        inverse_pitch_shift : out unsigned(17 downto 0)
+	);
+	end component;
 
     component rectangular_ifft is
 	generic (
@@ -143,7 +155,7 @@ begin
 
     -- Average the left and right channels so convert audio to mono
 
-	r_data_avg <= std_logic_vector(resize(shift_right(resize(unsigned(l_data_rx), 25) + resize(unsigned(r_data_rx), 25), 1), 24)); -- averages the left and right channels
+	r_data_avg <= std_logic_vector(resize(shift_right(resize(signed(l_data_rx), 25) + resize(signed(r_data_rx), 25), 1), 24)); -- averages the left and right channels
 
 	m_clk : clk_wiz_0
 	port map(
@@ -159,7 +171,7 @@ begin
 		d_width         => 24
 	)
 	port map(
-		reset_n   => rst,
+		reset_n   => (not rst),
 		mclk      => master_clk,
 		sclk      => serial_clk,
 		ws        => word_select,
@@ -186,14 +198,22 @@ begin
 		magnitude_out => fft_mag_ram,
 		fft_ready     => fft_frame_ready
 	);
+	
+	pitch_rom_0 : pitch_rom
+	port map(
+	    clk => CLK100MHZ,
+	    pitch_index => pitch_index,
+	    pitch_shift => pitch_shift_ctl,
+	    inverse_pitch_shift => inverse_pitch_shift_ctl
+	);
 
 	pitch_shifter_0 : pitch_shift
 	port map(
 		clk                     => CLK100MHZ,
 		rst                     => rst,
 		input_valid             => fft_frame_ready,
-		pitch_shift             => ctrl_pitch_shift,
-		inverse_pitch_shift     => ctrl_inv_shift,
+		pitch_shift             => pitch_shift_ctl,
+		inverse_pitch_shift     => inverse_pitch_shift_ctl,
 		input_phase             => fft_phase_ram,
 		input_magnitude         => fft_mag_ram,
 		output_phase_stream     => ps_phase_stream,

@@ -1,0 +1,4 @@
+Running: xsim.dir/guitar_pedal_tb_behav/xsimk -simmode gui -wdb guitar_pedal_tb_behav.wdb -simrunnum 0 -socket 48251
+Design successfully loaded
+Design Loading Memory Usage: 219716 KB (Peak: 220164 KB)
+Design Loading CPU Usage: 1520 ms

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1781208032" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/guitar_pedal.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="guitar_pedal_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="guitar_pedal.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="guitar_pedal_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="guitar_pedal_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="guitar_pedal_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="guitar_pedal.vds"/>
   <File Type="REPORTS-TCL" Name="guitar_pedal_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="guitar_pedal_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="guitar_pedal.tcl"/>
+  <File Type="RDS-UTIL" Name="guitar_pedal_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="guitar_pedal_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/hanning_window_rom.vhd">
@@ -90,8 +87,8 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="cordic_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="cordic_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
   <BlockFileSet Type="BlockSrcs" Name="xfft_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="cordic_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="cordic_1"/>
 </GenRun>

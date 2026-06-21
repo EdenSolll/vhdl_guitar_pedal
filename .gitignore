@@ -1,0 +1,11 @@
+./ccrma-colloq-oct22.pdf
+./A Review of Digital Techniques for Modeling Vacuum-Tube Guitar Amplifiers.pdf
+./python_scripts/pyvenv.cfg
+./python_scripts/clean_guitar.wav
+./python_scripts/bin
+./python_scripts/env
+./python_scripts/lib
+./python_scripts/lib64
+./hdl/vhdl_guitar_pedal.sim/*
+./hdl/vhdl_guitar_pedal.hw/*
+./hdl/vhdl_guitar_pedal.runs/*

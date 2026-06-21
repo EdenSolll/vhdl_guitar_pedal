@@ -12,10 +12,10 @@ entity polar_fft is
 		m       : integer := 24
 	);
 	port (
-		clk         : in std_logic;
-		rst         : in std_logic;
-		word_select : in std_logic;
-		real_data   : in std_logic_vector(23 downto 0);
+		clk           : in  std_logic;
+		rst           : in  std_logic;
+		word_select   : in  std_logic;
+		real_data     : in  std_logic_vector(23 downto 0);
 		phase_out     : out ram_24bit;
 		magnitude_out : out ram_24bit;
 		fft_ready     : out std_logic
@@ -25,14 +25,9 @@ end entity polar_fft;
 architecture behavioral of polar_fft is
 	-- FFT configuration constants
 	constant s_config_tdata        : std_logic_vector(23 downto 0) := "000000000000000000000001"; -- configure fft for forward transform              -- forward transform selected, optional fields not needed
-	constant s_iconfig_tdata       : std_logic_vector(7 downto 0)  := "000000000000000000000000"; -- inverse transform selected, optional fields not needed
 	constant s_data_imaginary      : std_logic_vector(23 downto 0) := "000000000000000000000000"; -- all input data is real
 
 	-- Foward FFT signals
-
-	signal s_tlast                 : std_logic;                                                   -- intentionally unused signal
-	signal master_clk              : std_logic;
-	signal serial_clk              : std_logic;
 	signal s_config_tvalid         : std_logic;
 	signal s_config_tready         : std_logic;
 	signal s_data_tvalid           : std_logic;
@@ -47,10 +42,6 @@ architecture behavioral of polar_fft is
 	signal m_valid_status_tdata    : std_logic_vector(7 downto 0);
 	signal m_axis_data_tlast       : std_logic;
 
-	signal word_delay              : std_logic;
-
-	signal aclk                    : std_logic;
-	signal aresetn                 : std_logic;
 	signal s_axis_cartesian_tvalid : std_logic;
 	signal s_axis_cartesian_tlast  : std_logic;
 	signal rectangular_tdata       : std_logic_vector(47 downto 0);
@@ -60,32 +51,44 @@ architecture behavioral of polar_fft is
 
 	signal magnitude_ram           : ram_24bit := (others => (others => '0'));
 	signal phase_ram               : ram_24bit := (others => (others => '0'));
+	signal config_done             : std_logic;
 
-    signal config_done             : std_logic;
+	-- hanning window signals
 
-    -- hanning window signals
+	signal audio_signed            : signed(23 downto 0);
+	signal window_coeff            : signed(23 downto 0);
+	signal windowed_audio          : std_logic_vector(23 downto 0);
 
-    signal audio_signed    : signed(23 downto 0);
-    signal window_coeff    : signed(23 downto 0);
-    signal windowed_audio  : std_logic_vector(23 downto 0);
-    signal sample_index    : integer range 0 to 1023 := 0;
-    signal ws_last         : std_logic := '0';
+	-- Input Buffer
+	type input_buffer_t is array (0 to 1023) of std_logic_vector(23 downto 0);
+	signal input_ram   : input_buffer_t         := (others => (others => '0'));
+
+	signal write_ptr   : unsigned(9 downto 0)   := (others => '0');
+	signal hop_counter : integer range 0 to 256 := 0;
+	signal ws_delay    : std_logic              := '0';
+
+	-- Burst State Machine Signals
+	type state_t is (IDLE, STREAM_BURST);
+	signal current_state  : state_t              := IDLE;
+
+	signal read_offset    : unsigned(9 downto 0) := (others => '0');
+	signal start_read_ptr : unsigned(9 downto 0) := (others => '0');
 
 	component xfft_0
 		port (
-			aclk                       : in  std_logic;
-			aresetn                    : in  std_logic;
-			s_axis_config_tdata        : in  std_logic_vector(23 downto 0);
-			s_axis_config_tvalid       : in  std_logic;
-			s_axis_config_tready       : out std_logic;
-			s_axis_data_tdata          : in  std_logic_vector(47 downto 0);
-			s_axis_data_tvalid         : in  std_logic;
-			s_axis_data_tready         : out std_logic;
-			s_axis_data_tlast          : in  std_logic;
-			m_axis_data_tdata          : out std_logic_vector(47 downto 0);
-			m_axis_data_tuser          : out std_logic_vector(15 downto 0);
-			m_axis_data_tvalid         : out std_logic;
-			m_axis_data_tlast          : out std_logic
+			aclk                 : in  std_logic;
+			aresetn              : in  std_logic;
+			s_axis_config_tdata  : in  std_logic_vector(23 downto 0);
+			s_axis_config_tvalid : in  std_logic;
+			s_axis_config_tready : out std_logic;
+			s_axis_data_tdata    : in  std_logic_vector(47 downto 0);
+			s_axis_data_tvalid   : in  std_logic;
+			s_axis_data_tready   : out std_logic;
+			s_axis_data_tlast    : in  std_logic;
+			m_axis_data_tdata    : out std_logic_vector(47 downto 0);
+			m_axis_data_tuser    : out std_logic_vector(15 downto 0);
+			m_axis_data_tvalid   : out std_logic;
+			m_axis_data_tlast    : out std_logic
 		);
 	end component;
 
@@ -104,70 +107,107 @@ architecture behavioral of polar_fft is
 
 begin
 
--- Configuration Boot sequence
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            if rst = '1' then
-                s_config_tvalid <= '0';
-                config_done <= '0';
-            else
-                if config_done = '0' then
-                    s_config_tvalid <= '1';
-                    if s_config_tready = '1' then
-                        s_config_tvalid <= '0';
-                        config_done <= '1';
-                    end if;
-                end if;
-            end if;
-        end if;
-    end process;
+	-- Configuration Boot sequence
+	process (clk)
+	begin
+		if rising_edge(clk) then
+			if rst = '1' then
+				s_config_tvalid <= '0';
+				config_done     <= '0';
+			else
+				if config_done = '0' then
+					s_config_tvalid <= '1';
+					if s_config_tready = '1' then
+						s_config_tvalid <= '0';
+						config_done     <= '1';
+					end if;
+				end if;
+			end if;
+		end if;
+	end process;
 
-    -- Apply hanning window constants
+	-- Apply hanning window constants
 
-process(clk)
-    variable multiply_result : signed(47 downto 0);
-    begin
-        if rising_edge(clk) then
-            if rst = '1' then
-                sample_index      <= 0;
-                ws_last           <= '0';
-                s_data_tvalid     <= '0';
-                s_data_tlast <= '0';
-                windowed_audio    <= (others => '0');
-            else
-                -- Automatic handshake clearing
-                if s_data_tready = '1' and s_data_tvalid = '1' then
-                    s_data_tvalid <= '0';
-                end if;
+	process (clk)
+		variable multiply_result    : signed(47 downto 0);
+		variable absolute_read_addr : integer range 0 to 1023;
+		variable raw_sample         : signed(23 downto 0);
+		variable window_coeff       : signed(23 downto 0);
+	begin
+		if rising_edge(clk) then
+			if rst = '1' then
+				write_ptr     <= (others => '0');
+				hop_counter   <= 0;
+				read_offset   <= (others => '0');
+				s_data_tvalid <= '0';
+				s_data_tlast  <= '0';
+				current_state <= IDLE;
+				ws_delay      <= '0';
+			else
+				ws_delay <= word_select;
 
-                -- Trigger when a new I2S audio sample is ready
-                if word_select /= ws_last then
+				if ws_delay = '1' and word_select = '0' then
 
-                    multiply_result := hanning_rom(sample_index) * signed(real_data);
+					-- store new data to circulr buffer 
+					input_ram(to_integer(write_ptr)) <= real_data;
 
-                    -- consider adding convergent rounding to multiplication instead of truncating
+					-- increment pointer
+					write_ptr                        <= write_ptr + 1;
 
-                    windowed_audio <= std_logic_vector(multiply_result(46 downto 23));
-                    -- set valid data flag
-                    s_data_tvalid <= '1';
+					if hop_counter < 256 then
+						hop_counter <= hop_counter + 1;
+					end if;
 
-                    -- Manage the boundary conditions
-                    if sample_index = 1023 then
-                        s_data_tlast <= '1';
-                        sample_index <= 0;
-                    else
-                        s_data_tlast <= '0';
-                        sample_index <= sample_index + 1;
-                    end if;
-                else
-                    s_data_tlast <= '0';
-                end if;
+				end if;
 
-                ws_last <= word_select;
-            end if;
-        end if;
-    end process;
+				case current_state is
+
+					when IDLE =>
+						s_data_tvalid <= '0';
+						s_data_tlast  <= '0';
+						read_offset   <= (others => '0');
+
+						-- trigger once 256 samples have arrived 
+						if hop_counter = 256 then
+							hop_counter    <= 0;
+							start_read_ptr <= write_ptr;
+							current_state  <= STREAM_BURST;
+						end if;
+					when STREAM_BURST =>
+						if s_data_tready = '1' then
+							s_data_tvalid      <= '1';
+
+							-- Calculate address, starting sample index + offset
+							absolute_read_addr := to_integer(start_read_ptr + read_offset);
+
+							raw_sample      := signed(input_ram(absolute_read_addr));
+							window_coeff    := hanning_rom(to_integer(read_offset));
+
+							multiply_result := raw_sample * window_coeff;
+
+							-- consider adding convergent rounding to multiplication instead of truncating
+
+							windowed_audio <= std_logic_vector(multiply_result(46 downto 23));
+							-- Manage the boundary conditions
+							if read_offset = 1023 then
+								s_data_tlast  <= '1';
+								current_state <= IDLE;
+							else
+								s_data_tlast <= '0';
+							end if;
+							-- increment window offset
+							read_offset <= read_offset + 1;
+						else
+
+							s_data_tvalid <= '1';
+						end if;
+
+					when others =>
+						current_state <= IDLE;
+				end case;
+			end if;
+		end if;
+	end process;
 
 	forward_fft : xfft_0
 	port map(
@@ -186,7 +226,7 @@ process(clk)
 		m_axis_data_tlast    => m_axis_data_tlast
 	);
 
-  rectangular_to_polar : cordic_0
+	rectangular_to_polar : cordic_0
 	port map(
 		aclk                    => clk,
 		aresetn                 => (not rst),

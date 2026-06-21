@@ -43,8 +43,9 @@ def generate_vhdl_vectors(input_wav_path, output_txt_path, target_sample_rate=96
             else:
                 sample = int(sample)
 
-            # Safely mask to a 24-bit boundaries (handles both positive and negative signed integers)
+            # Mask to a 24-bit boundaries (handles both positive and negative signed integers)
             twos_complement_val = sample & 0xFFFFFF
+        
             hex_string = f"{twos_complement_val:06X}\n"
             f.write(hex_string)
 
@@ -55,6 +56,6 @@ if __name__ == "__main__":
     output_txt = "audio_input.txt"
 
     TARGET_SR = 96000
-    SIM_LIMIT_SEC = 0.01  # Perfect 10ms boundary for fast Vivado execution!
+    SIM_LIMIT_SEC = 0.01
 
     generate_vhdl_vectors(input_wav, output_txt, target_sample_rate=TARGET_SR, max_duration_seconds=SIM_LIMIT_SEC)
