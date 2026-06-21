@@ -25,6 +25,7 @@ end entity polar_fft;
 architecture behavioral of polar_fft is
 	-- FFT configuration constants
 	constant s_config_tdata        : std_logic_vector(23 downto 0) := "000000000000000000000001"; -- configure fft for forward transform              -- forward transform selected, optional fields not needed
+	constant s_iconfig_tdata       : std_logic_vector(7 downto 0)  := "000000000000000000000000"; -- inverse transform selected, optional fields not needed
 	constant s_data_imaginary      : std_logic_vector(23 downto 0) := "000000000000000000000000"; -- all input data is real
 
 	-- Foward FFT signals
