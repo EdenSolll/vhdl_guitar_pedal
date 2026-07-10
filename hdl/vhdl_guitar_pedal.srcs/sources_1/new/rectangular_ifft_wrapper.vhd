@@ -25,11 +25,12 @@ end entity rectangular_ifft_wrapper;
 
 architecture behavioral of rectangular_ifft_wrapper is
 
-    -- All your existing signals (keep them)
+    -- polar buffers 
     signal phase_buf     : t_phase_frame := (others => (others => '0'));
     signal mag_buf       : t_mag_frame   := (others => (others => '0'));
+    
+    -- index signals
     signal write_index   : integer range 0 to 1023 := 0;
-    signal state         : state_t := IDLE;
     signal cordic_idx    : integer range 0 to 1023 := 0;
 
     -- Hanning window signals
@@ -38,13 +39,13 @@ architecture behavioral of rectangular_ifft_wrapper is
     signal ifft_out_valid    : std_logic := '0';
     signal ifft_out_last     : std_logic := '0';
 
-    -- NEW: Signals to connect to the pipeline
+    -- Pipleline signals 
     signal pipe_s_axis        : t_polar_forward;
     signal pipe_s_ready       : std_logic;
     signal pipe_m_axis        : t_axis_forward;
     signal pipe_m_ready       : std_logic;
 
-    -- State machine (already in your file)
+    -- State machine 
     type state_t is (IDLE, COLLECT, STREAM_CORDIC, WAIT_IFFT);
     signal state : state_t := IDLE;
 
@@ -62,7 +63,7 @@ architecture behavioral of rectangular_ifft_wrapper is
 
 begin
 
-    -- Instantiate the pipeline (no IPs inside the wrapper!)
+    -- Instantiate the polar to audio entity 
     polar_to_audio_inst : polar_to_audio
     port map(
         clk     => clk,
@@ -70,10 +71,10 @@ begin
         s_axis  => pipe_s_axis,
         s_ready => pipe_s_ready,
         m_axis  => pipe_m_axis,
-        m_ready => m_ready  -- Backpressure from downstream
+        m_ready => m_ready  
     );
 
-    -- Your existing FSM (collect frame, stream to pipeline)
+    -- FSM
     process (clk)
     begin
         if rising_edge(clk) then

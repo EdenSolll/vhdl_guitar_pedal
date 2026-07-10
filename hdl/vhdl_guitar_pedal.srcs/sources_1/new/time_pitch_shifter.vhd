@@ -7,18 +7,11 @@ entity time_pitch_shifter is
 	port (
 		clk           : in  std_logic;
 		rst           : in  std_logic;
-
-		-- Streaming input
 		s_axis        : in  t_axis_forward;
 		s_ready       : out std_logic;
-
-		-- Streaming output
 		m_axis        : out t_axis_forward;
 		m_ready       : in  std_logic;
-
-		-- Configuration
-		pitch_control : in  signed(15 downto 0);
-		bypass        : in  std_logic
+		pitch_control : in  signed(15 downto 0)
 	);
 end entity;
 
@@ -173,8 +166,7 @@ begin
 					diff_B   <= sample_B1 - sample_B0;
 
 					-- Linear interpolation to handle artifacts and aliasing
-					-- interpolation = sample0 + (sample1 - sample0) * frac / 4096
-					-- Product is 24-bit * 13-bit = 37-bit, resize downto 24 bits
+					-- interpolation = sample0 + (sample1 - sample0) * frac / 4096 (resized to 24 bits)
 					interp_A <= sample_A0 + resize(
 						shift_right(diff_A * signed('0' & frac_A), 12), 24
 						);
@@ -186,20 +178,12 @@ begin
 					mult_result_A <= interp_A * gain_A;
 					mult_result_B <= interp_B * gain_B;
 
-					-- Output mux for bypass or pitch shifted signal
-					if bypass = '1' then
-						m_axis.data  <= s_axis.data;
-						m_axis.valid <= s_axis.valid;
-						m_axis.last  <= s_axis.last;
-					else
-						sample_out_reg <= resize(
-							mult_result_A(35 downto 12) + mult_result_B(35 downto 12), 24
-							);
-						m_axis.data  <= sample_out_reg;
-						m_axis.valid <= '1'; -- set new sample control signal
-						m_axis.last  <= '0'; -- time-domain ignores frame boundaries
-					end if;
-
+                    sample_out_reg <= resize(
+                        mult_result_A(35 downto 12) + mult_result_B(35 downto 12), 24
+                        );
+                    m_axis.data  <= sample_out_reg;
+                    m_axis.valid <= '1'; -- set new sample control signal
+                    m_axis.last  <= '0'; -- time-domain ignores frame boundaries
 				end if;
 			end if;
 		end if;

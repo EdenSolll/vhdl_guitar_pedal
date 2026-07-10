@@ -34,8 +34,6 @@ architecture structural of polar_to_audio is
     signal cordic_tvalid : std_logic;
     signal cordic_tlast  : std_logic;
 
-    
-
     component xfft_0
         port (
             aclk                 : in  std_logic;
