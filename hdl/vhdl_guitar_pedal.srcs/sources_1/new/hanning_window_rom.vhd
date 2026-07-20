@@ -27,7 +27,7 @@ package hanning_window_rom is
 
 type window_rom_t is array (0 to 1023) of signed(23 downto 0);
 
-constant hanning_rom : window_rom_t := (
+constant HANNING_ROM : window_rom_t := (
 	0 => x"000000",
 	1 => x"00004F",
 	2 => x"00013C",
@@ -1054,5 +1054,7 @@ constant hanning_rom : window_rom_t := (
 	1023 => x"00004F"
 );
 
+    attribute rom_style : string;
+    attribute rom_style of HANNING_ROM : constant is "block";
 
 end package hanning_window_rom;

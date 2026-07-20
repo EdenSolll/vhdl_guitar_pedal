@@ -1,11 +1,12 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
--- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-- Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
--- Date        : Fri May 22 20:47:31 2026
--- Host        : Solstice running 64-bit Arch Linux
+-- Tool Version: Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+-- Date        : Fri Jul 17 14:01:13 2026
+-- Host        : jet.csh.rit.edu running 64-bit Rocky Linux 9.8 (Blue Onyx)"
+RELEASE_TYPE="stable
 -- Command     : write_vhdl -force -mode funcsim
---               /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
+--               /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
 -- Design      : clk_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

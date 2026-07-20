@@ -62,6 +62,7 @@
 // __primary_________100.000____________0.010
 
 `timescale 1ps/1ps
+`default_nettype wire
 
 module clk_wiz_0_clk_wiz 
 
@@ -77,6 +78,7 @@ module clk_wiz_0_clk_wiz
   // Input buffering
   //------------------------------------
 wire clk_in1_clk_wiz_0;
+wire clk_in1_clk_wiz_0_buf;
 wire clk_in2_clk_wiz_0;
   IBUF clkin1_ibufg
    (.O (clk_in1_clk_wiz_0),
@@ -94,11 +96,6 @@ wire clk_in2_clk_wiz_0;
 
   wire        clk_out1_clk_wiz_0;
   wire        clk_out2_clk_wiz_0;
-  wire        clk_out3_clk_wiz_0;
-  wire        clk_out4_clk_wiz_0;
-  wire        clk_out5_clk_wiz_0;
-  wire        clk_out6_clk_wiz_0;
-  wire        clk_out7_clk_wiz_0;
 
   wire [15:0] do_unused;
   wire        drdy_unused;

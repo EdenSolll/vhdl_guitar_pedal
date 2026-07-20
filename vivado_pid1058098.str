@@ -1,0 +1,307 @@
+/*
+
+AMD Vivado v2026.1 (64-bit) [Major: 2026, Minor: 1]
+SW Build: 6511674 on Tue Jun 16 11:01:26 MDT 2026
+IP Build: 6504888 on Tue Jun 09 09:05:25 MDT 2026
+IP Build: 6504888 on Tue Jun 09 09:05:25 MDT 2026
+
+Process ID (PID): 1058098
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Mon Jul 20 10:52:12 EDT 2026
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Rocky Linux release 9.8 (Blue Onyx)
+OS Version: 5.14.0-687.12.1.el9_8.x86_64
+OS Architecture: amd64
+Available processors (cores): 48
+LSB Release Description: NAME=Rocky Linux
+
+Display: localhost:10.0
+Screen size: 2880x1620
+Local screen bounds: x = 0, y = 0, width = 2880, height = 1620
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Open Sans,name=Open Sans,style=plain,size=13
+Scale size: 13
+OS font scaling: 100%
+Anti-Alias Enabled: true
+
+Java version: 	24.0.2 64-bit
+
+Java home: 	/users/u31/sol/xilinx_host/Xilinx/2026.1/tps/lnx64/jre24.0.2_12
+Java executable: 	/users/u31/sol/xilinx_host/Xilinx/2026.1/tps/lnx64/jre24.0.2_12/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:ParallelGCThreads=4, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, --sun-misc-unsafe-memory-access=allow, --enable-native-access=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms812m, -Xmx6144m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	812 MB
+Java maximum memory (-Xmx):	 6 GB
+
+User name: 	sol
+User home directory: /users/u31/sol
+User working directory: /users/u31/sol/vhdl_guitar_pedal
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1
+HDI_APPROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+RDI_DATADIR: /users/u31/sol/vhdl_guitar_pedal/:/users/u31/sol/xilinx_host/Xilinx/2026.1/data
+RDI_BINDIR: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin
+
+Vivado preferences file: /users/u31/sol/.Xilinx/Vivado/2026.1/newvivado.xml
+Vivado preferences directory: /users/u31/sol/.Xilinx/Vivado/2026.1/
+Vivado layouts directory: /users/u31/sol/.Xilinx/Vivado/2026.1/data/layouts
+PlanAhead jar file: 	/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/classes/planAhead.jar
+Vivado log file: 	/users/u31/sol/vhdl_guitar_pedal/vivado.log
+Vivado journal file: 	/users/u31/sol/vhdl_guitar_pedal/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-1058098-jet.csh.rit.edu
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+RDI_APPROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+RDI_BASEROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1
+RDI_BINROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin
+RDI_BUILD: yes
+RDI_DATADIR: :/users/u31/sol/xilinx_host/Xilinx/2026.1/data
+RDI_INSTALLROOT: /users/u31/sol/xilinx_host/Xilinx
+RDI_INSTALLVER: Vivado
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 24.0.2_12
+RDI_LIBDIR: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/lnx64.o/Rhel/9:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/lnx64.o/Rhel:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis/bin:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE/bin/lin64
+RDI_PROG: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /users/u31/sol/vhdl_guitar_pedal:jet.csh.rit.edu_1784559115_1058045
+RDI_SHARED_DATA: 
+RDI_TPS_ROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/tps/lnx64
+RDI_USE_JDK24: True
+SHELL: /bin/bash
+XILINX: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE
+XILINXD_LICENSE_FILE: /users/u31/sol/xilinx_licenses/core_licenses/server.lic
+XILINX_DSP: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE
+XILINX_HLS: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis
+XILINX_PLANAHEAD: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+XILINX_SDK: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis
+XILINX_VITIS: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis
+XILINX_VIVADO: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+_JAVA_AWT_WM_NONREPARENTING: 1
+
+
+GUI allocated memory:	812 MB
+GUI max memory:		6,144 MB
+Engine allocated memory: 2,172 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 10-jul-2027. 
+// Tcl Message: start_gui 
+selectList(PAResourceTtoZ.UpgradedSyntheticaGettingStartedView_RECENT_PROJECTS, "/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr$Artix-7, xc7a35tcpg236-1", 0); // b.c (PAResourceTtoZ.UpgradedSyntheticaGettingStartedView_RECENT_PROJECTS)
+// Opening Vivado Project: /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr. Version: Vivado v2026.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: MSGMGR_REFRESH_MSG
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 130 MB (+133663kb) [00:00:10]
+// [Engine Memory]: 2,067 MB (+2015689kb) [00:00:10]
+// WARNING: HEventQueue.dispatchEvent() is taking  1981 ms.
+// Tcl Message: open_project /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/users/u31/sol/xilinx_host/Xilinx/2026.1/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,182 MB. GUI used memory: 72 MB. Current time: 7/20/26, 10:52:12 AM EDT
+// [Engine Memory]: 2,182 MB (+12594kb) [00:00:12]
+// [GUI Memory]: 139 MB (+2648kb) [00:00:13]
+// Project name: vhdl_guitar_pedal; location: /users/u31/sol/vhdl_guitar_pedal/hdl; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bk (Open Project Progress)
+// TclEventType: DG_GRAPH_GENERATED
+selectTab((HResource) null, (HResource) null, "Reports", 3); // ab
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTab((HResource) null, (HResource) null, "Messages", 1); // ab
+selectTab((HResource) null, (HResource) null, "Log", 2); // ab
+// Elapsed time: 10 seconds
+selectCodeEditor(PAResourceItoN.LogMonitor_MONITOR, 135, 89); // B (PAResourceItoN.LogMonitor_MONITOR, Monitor)
+selectCodeEditor(PAResourceItoN.LogMonitor_MONITOR, 186, 115); // B (PAResourceItoN.LogMonitor_MONITOR, Monitor)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,177 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:52:41 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,177 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:53:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,177 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:54:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,177 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:54:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,177 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:55:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:56:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:56:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:57:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:58:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:58:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 10:59:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:00:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:00:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:01:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:02:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:02:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:03:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:04:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:04:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:05:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:06:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:06:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:07:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:08:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:08:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:09:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:10:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,263 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:10:36 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:10:42 AM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1868 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:11:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:12:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:12:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:13:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:14:02 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:14:42 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:15:22 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 71 MB. Current time: 7/20/26, 11:16:02 AM EDT
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 1435 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel", "Synthesis Completed"); // f (RDIResource.BaseDialog_CANCEL)
+dismissDialog("Synthesis Completed"); // W.a (dialog0)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,281 MB. GUI used memory: 85 MB. Current time: 7/20/26, 11:16:42 AM EDT
+// Elapsed time: 17 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // ab
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd)]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd)]", 1, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+// [GUI Memory]: 154 MB (+8772kb) [00:24:49]
+// [Engine Memory]: 2,313 MB (+23204kb) [00:24:49]
+selectCodeEditor("guitar_pedal.vhd", 459, 791); // ae (guitar_pedal.vhd)
+// Elapsed time: 17 seconds
+selectCodeEditor("guitar_pedal.vhd", 116, 733); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 116, 733, false, false, false, false, true); // ae (guitar_pedal.vhd) - Double Click
+selectCodeEditor("guitar_pedal.vhd", 116, 733); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 230, 741); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 230, 741, false, false, false, false, true); // ae (guitar_pedal.vhd) - Double Click
+selectCodeEditor("guitar_pedal.vhd", 230, 741); // ae (guitar_pedal.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,330 MB. GUI used memory: 87 MB. Current time: 7/20/26, 11:17:22 AM EDT
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, PAResourceEtoH.FileSetView_ADD_TAB, "Compile Order", 3); // g (PAResourceEtoH.FileSetView_TABBED_PANE, SourcesView)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audio_stream_pkg.vhd]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectButton("NO", "No", "Move Sources"); // JButton (NO)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audio_stream_pkg.vhd]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audio_stream_pkg.vhd]", 2, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectCodeEditor("audio_stream_pkg.vhd", 322, 231); // ae (audio_stream_pkg.vhd)
+selectCodeEditor("audio_stream_pkg.vhd", 322, 231, false, false, false, false, true); // ae (audio_stream_pkg.vhd) - Double Click
+selectCodeEditor("audio_stream_pkg.vhd", 322, 231); // ae (audio_stream_pkg.vhd)
+selectCodeEditor("audio_stream_pkg.vhd", 746, 239); // ae (audio_stream_pkg.vhd)
+// Elapsed time: 11 seconds
+selectTab((HResource) null, (HResource) null, "Reports", 3); // ab
+selectTab((HResource) null, (HResource) null, "Log", 2); // ab
+selectTab((HResource) null, (HResource) null, "Messages", 1); // ab
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // ab
+// HMemoryUtils.trashcanNow. Engine heap size: 2,361 MB. GUI used memory: 87 MB. Current time: 7/20/26, 11:18:02 AM EDT
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // ab
+// [GUI Memory]: 166 MB (+4505kb) [00:26:03]
+collapseTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 16); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 16); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Utilization]", 26, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a35tcpg236-1 
+// [Engine Memory]: 2,663 MB (+245026kb) [00:26:20]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,731 MB. GUI used memory: 88 MB. Current time: 7/20/26, 11:18:21 AM EDT
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// HMemoryUtils.trashcanNow. Engine heap size: 2,930 MB. GUI used memory: 87 MB. Current time: 7/20/26, 11:18:36 AM EDT
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// HMemoryUtils.trashcanNow. Engine heap size: 3,506 MB. GUI used memory: 87 MB. Current time: 7/20/26, 11:18:42 AM EDT
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 3,506 MB. GUI used memory: 87 MB. Current time: 7/20/26, 11:18:43 AM EDT
+// [Engine Memory]: 3,506 MB (+744579kb) [00:26:42]
+// Xgd.load filename: /users/u31/sol/vhdl_guitar_pedal/./.Xil/Vivado-1058098-jet.csh.rit.edu/xc7a35t_detail.xgd_13D8FD79 elapsed time: 1s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 1.1s
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// RouteApi::loadEngineXgdAndInitRouteStorage elapsed time: 1.6s
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1448 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.74 . Memory (MB): peak = 10588.293 ; gain = 0.000 ; free physical = 582508 ; free virtual = 759093 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 28576 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2026.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'm_clk/inst' Finished Parsing XDC File [/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'm_clk/inst' Parsing XDC File [/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'm_clk/inst' 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. [/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54] INFO: [Timing 38-2] Deriving generated clocks [/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54] 
+// Tcl Message: Finished Parsing XDC File [/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'm_clk/inst' 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 11564.262 ; gain = 0.000 ; free physical = 581814 ; free virtual = 758399 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 320 instances were transformed.   RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 192 instances   RAM64M => RAM64M (RAMD64E(x4)): 128 instances  
+// TclEventType: CURR_DESIGN_SET
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// ExpRunCommands.openSynthResults elapsed time: 41s
+// [GUI Memory]: 195 MB (+21850kb) [00:26:47]
+// Tcl Message: open_run: Time (s): cpu = 00:00:57 ; elapsed = 00:00:40 . Memory (MB): peak = 12058.977 ; gain = 1638.324 ; free physical = 581640 ; free virtual = 758229 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/q.a': 41s
+// Run Command: PAResourceCommand.PACommandNames_RESOURCE_UTILIZATION
+// Elapsed time: 43 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Report Utilization"); // f (RDIResource.BaseDialog_OK)
+dismissDialog("Report Utilization"); // a (dialog1)
+// Tcl Message: report_utilization -hierarchical_min_primitive_count 50 -name utilization_1 
+// TclEventType: UTILIZATION_RESULT_GENERATED
+// [GUI Memory]: 205 MB (+18kb) [00:26:53]
+// HMemoryUtils.trashcanNow. Engine heap size: 3,668 MB. GUI used memory: 135 MB. Current time: 7/20/26, 11:18:54 AM EDT
+dismissDialog("Report Utilization"); // bk (Report Utilization Progress)
+selectTreeTable(PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TREETABLE, "drop_wammy_inst (drop_wammy_pedal) ; 46494 ; 118952 ; 18509 ; 8619 ; 6 ; 31 ; 0 ; 0 ; 0", 1, "drop_wammy_inst (drop_wammy_pedal)", 0, false); // y (PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TREETABLE, PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TABLE(Hierarchy))
+// [Engine Memory]: 3,692 MB (+11364kb) [00:27:04]
+expandTreeTable(PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TREETABLE, "drop_wammy_inst (drop_wammy_pedal) ; 46494 ; 118952 ; 18509 ; 8619 ; 6 ; 31 ; 0 ; 0 ; 0", 1); // y (PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TREETABLE, PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TABLE(Hierarchy))
+// PAPropertyPanels.initPanels (freq_pitch_inst (freq_pitch_shifter)) elapsed time: 0.2s
+selectTreeTable(PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TREETABLE, "freq_pitch_inst (freq_pitch_shifter) ; 24521 ; 61593 ; 11424 ; 5684 ; 0 ; 1 ; 0 ; 0 ; 0", 2, "freq_pitch_inst (freq_pitch_shifter)", 0, true); // y (PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TREETABLE, PAResourceTtoZ.UtilizationHierViewTreeTablePanel_TABLE(Hierarchy)) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 3,860 MB. GUI used memory: 143 MB. Current time: 7/20/26, 11:19:21 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,692 MB. GUI used memory: 143 MB. Current time: 7/20/26, 11:19:23 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,693 MB. GUI used memory: 144 MB. Current time: 7/20/26, 11:20:03 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,693 MB. GUI used memory: 131 MB. Current time: 7/20/26, 11:20:43 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,693 MB. GUI used memory: 131 MB. Current time: 7/20/26, 11:21:23 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,693 MB. GUI used memory: 131 MB. Current time: 7/20/26, 11:22:03 AM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  8990 ms.
+// Elapsed time: 175 seconds
+selectTab((HResource) null, (HResource) null, "Sources", 0); // ab
+selectTab((HResource) null, (String) null, (HResource) null, "Sources", 0, false, true); // ab - Double Click
+selectTab((HResource) null, (HResource) null, "Sources", 0); // ab
+selectTab((HResource) null, (HResource) null, "Netlist", 1); // ab
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[guitar_pedal, drop_wammy_inst (drop_wammy_pedal)]", 3, true); // aH (PAResourceItoN.NetlistTreeView_NETLIST_TREE) - Node
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[guitar_pedal, drop_wammy_inst (drop_wammy_pedal)]", 3, true, false, false, false, false, true); // aH (PAResourceItoN.NetlistTreeView_NETLIST_TREE) - Double Click - Node
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[guitar_pedal, drop_wammy_inst (drop_wammy_pedal)]", 3, true); // aH (PAResourceItoN.NetlistTreeView_NETLIST_TREE) - Node
+selectTab((HResource) null, (HResource) null, "Sources", 0); // ab
+maximizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // S (PAResourceOtoP.PAViews_SOURCES, Sources)

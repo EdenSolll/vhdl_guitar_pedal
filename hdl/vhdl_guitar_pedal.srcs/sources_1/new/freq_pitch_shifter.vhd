@@ -26,7 +26,12 @@ architecture behavioral of freq_pitch_shifter is
     signal current_state     : state_t := IDLE;
     signal previous_phase    : t_phase_frame := (others => (others => '0'));
     signal accumulated_phase : t_frac_phase_ram := (others => (others => '0'));
-    
+   
+    attribute ram_style : string;
+    attribute ram_style of previous_phase : signal is "block";
+    attribute ram_style of accumulated_phase : signal is "block";
+
+
 begin
 
     process (clk)

@@ -53,7 +53,11 @@ architecture structural of guitar_pedal is
     signal inverse_pitch_shift_ctl : unsigned(17 downto 0); 
 
     -- Overlap-add signals
-    signal playback_ram    : audio_buffer_t := (others => (others => '0'));
+    signal playback_ram    : audio_buffer_t;
+
+    attribute ram_style : string;
+    attribute ram_style of playback_ram : signal is "block";
+
     signal ws_delay        : std_logic := '0';
     
     signal frame_start_addr : unsigned(9 downto 0) := (others => '0');
@@ -222,24 +226,32 @@ begin
         variable sum_val             : t_audio_sample;
     begin
         if rising_edge(CLK100MHZ) then
-            overlap_ready <= '1';  -- Consider adding better more complex AXI4 logic in the future 
-            
-            if audio_out_stream.valid = '1' and overlap_ready = '1' then
-                -- Calculate circular address: Frame Start + current offset
-                absolute_write_addr := to_integer(frame_start_addr + write_offset);
+            if rst = '1' then 
+                overlap_ready <= '1';
+                frame_start_addr <= (others => '0');
+                write_offset <= (others => '0'); 
+                i2s_read_addr <= (others => '0');
+                playback_ram <= (others => (others => '0'));
+            else
+                overlap_ready <= '1';  -- Consider adding better more complex AXI4 logic in the future 
                 
-                -- Read existing data, add new sample, and write back
-                current_val := playback_ram(absolute_write_addr);
-                sum_val     := current_val + audio_out_stream.data;
-                playback_ram(absolute_write_addr) <= sum_val;
-                
-                -- Manage write offset and frame hopping
-                if write_offset = 1023 then
-                    write_offset <= (others => '0');
-                    -- Shift the start of the next frame forward by the Hop Size (256)
-                    frame_start_addr <= frame_start_addr + 256;
-                else
-                    write_offset <= write_offset + 1;
+                if audio_out_stream.valid = '1' and overlap_ready = '1' then
+                    -- Calculate circular address: Frame Start + current offset
+                    absolute_write_addr := to_integer(frame_start_addr + write_offset);
+                    
+                    -- Read existing data, add new sample, and write back
+                    current_val := playback_ram(absolute_write_addr);
+                    sum_val     := current_val + audio_out_stream.data;
+                    playback_ram(absolute_write_addr) <= sum_val;
+                    
+                    -- Manage write offset and frame hopping
+                    if write_offset = 1023 then
+                        write_offset <= (others => '0');
+                        -- Shift the start of the next frame forward by the Hop Size (256)
+                        frame_start_addr <= frame_start_addr + 256;
+                    else
+                        write_offset <= write_offset + 1;
+                    end if;
                 end if;
             end if;
         end if;

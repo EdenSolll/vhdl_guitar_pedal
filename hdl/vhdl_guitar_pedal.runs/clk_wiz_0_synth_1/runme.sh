@@ -1,16 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
 # 
 # Vivado(TM)
 # runme.sh: a Vivado-generated Runs Script for UNIX
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-# Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+# Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/home/Sol/Xilinx/Vivado/2025.1/Vitis/bin:/home/Sol/Xilinx/Vivado/2025.1/Vivado/ids_lite/ISE/bin/lin64:/home/Sol/Xilinx/Vivado/2025.1/Vivado/bin
+  PATH=/users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis/bin:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE/bin/lin64:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin
 else
-  PATH=/home/Sol/Xilinx/Vivado/2025.1/Vitis/bin:/home/Sol/Xilinx/Vivado/2025.1/Vivado/ids_lite/ISE/bin/lin64:/home/Sol/Xilinx/Vivado/2025.1/Vivado/bin:$PATH
+  PATH=/users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis/bin:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE/bin/lin64:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin:$PATH
 fi
 export PATH
 
@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1'
+HD_PWD='/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

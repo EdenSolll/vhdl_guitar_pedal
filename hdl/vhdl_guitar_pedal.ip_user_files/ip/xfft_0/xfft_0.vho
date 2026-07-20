@@ -46,7 +46,7 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 -- IP VLNV: xilinx.com:ip:xfft:9.1
--- IP Revision: 14
+-- IP Revision: 16
 
 -- The following code must appear in the VHDL architecture header.
 

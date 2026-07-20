@@ -94,7 +94,7 @@ begin
         s_axis_config_tready => open,
         s_axis_data_tdata    => cordic_tdata,
         s_axis_data_tvalid   => cordic_tvalid,
-        s_axis_data_tready   => open,
+        s_axis_data_tready   => s_ready,
         s_axis_data_tlast    => cordic_tlast,
         m_axis_data_tdata    => fft_tdata,
         m_axis_data_tuser    => open,

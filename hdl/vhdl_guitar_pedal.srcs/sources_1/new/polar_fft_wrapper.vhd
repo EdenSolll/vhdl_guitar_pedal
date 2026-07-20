@@ -26,15 +26,25 @@ end entity polar_fft_wrapper;
 
 architecture behavioral of polar_fft_wrapper is
 
-    -- All your existing signals (keep them)
     signal input_ram          : t_audio_frame := (others => (others => '0'));
+
+    attribute ram_style : string;
+    attribute ram_style of input_ram : signal is "block";
+
     signal write_ptr          : unsigned(9 downto 0) := (others => '0');
     signal read_offset        : unsigned(9 downto 0) := (others => '0');
     signal mult_pipe          : signed(47 downto 0) := (others => '0');
     signal valid_pipe         : std_logic := '0';
     signal last_pipe          : std_logic := '0';
+
     signal magnitude_ram      : t_mag_frame := (others => (others => '0'));
+
+    attribute ram_style of magnitude_ram : signal is "block";
+
     signal phase_ram          : t_phase_frame := (others => (others => '0'));
+
+    attribute ram_style of phase_ram : signal is "block";
+
     signal config_done        : std_logic := '0';
 
     -- Pipeline signals

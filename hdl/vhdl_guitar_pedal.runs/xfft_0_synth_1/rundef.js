@@ -2,7 +2,7 @@
 // Vivado(TM)
 // rundef.js: a Vivado-generated Runs Script for WSH 5.1/5.6
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+// Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 //
 
 echo "This script was generated under a different operating system."
@@ -13,9 +13,9 @@ var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "/home/Sol/Xilinx/Vivado/2025.1/Vitis/bin:/home/Sol/Xilinx/Vivado/2025.1/Vivado/ids_lite/ISE/bin/lin64;/home/Sol/Xilinx/Vivado/2025.1/Vivado/bin;";
+  PathVal = "/users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis/bin:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE/bin/lin64;/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin;";
 } else {
-  PathVal = "/home/Sol/Xilinx/Vivado/2025.1/Vitis/bin:/home/Sol/Xilinx/Vivado/2025.1/Vivado/ids_lite/ISE/bin/lin64;/home/Sol/Xilinx/Vivado/2025.1/Vivado/bin;" + PathVal;
+  PathVal = "/users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis/bin:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE/bin/lin64;/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;

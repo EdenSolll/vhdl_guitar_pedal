@@ -27,8 +27,14 @@ architecture behavioral of rectangular_ifft_wrapper is
 
     -- polar buffers 
     signal phase_buf     : t_phase_frame := (others => (others => '0'));
-    signal mag_buf       : t_mag_frame   := (others => (others => '0'));
     
+    attribute ram_style : string;
+    attribute ram_style of phase_buf : signal is "block";
+
+    signal mag_buf       : t_mag_frame   := (others => (others => '0'));
+
+    attribute ram_style of mag_buf : signal is "block";
+
     -- index signals
     signal write_index   : integer range 0 to 1023 := 0;
     signal cordic_idx    : integer range 0 to 1023 := 0;

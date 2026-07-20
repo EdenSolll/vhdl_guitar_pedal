@@ -1,5 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../vhdl_guitar_pedal.gen/sources_1/ip/xfft_0/sim/xfft_0.vhd" \
-
-# Do not sort compile order
-nosort

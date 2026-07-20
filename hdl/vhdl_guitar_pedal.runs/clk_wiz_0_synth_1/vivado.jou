@@ -1,24 +1,25 @@
 #-----------------------------------------------------------
-# Vivado v2025.1 (64-bit)
-# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
-# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
-# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Fri May 22 20:45:48 2026
-# Process ID         : 88048
-# Current directory  : /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Jul 17 14:00:29 2026
+# Process ID         : 1042681
+# Current directory  : /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1
 # Command line       : vivado -log clk_wiz_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_0.tcl
-# Log file           : /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1/clk_wiz_0.vds
-# Journal file       : /home/Sol/vhdl_guitar_pedal/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1/vivado.jou
-# Running On         : Solstice
-# Platform           : Arch
-# Operating System   : Arch Linux
-# Processor Detail   : 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
-# CPU Frequency      : 2200.000 MHz
-# CPU Physical cores : 4
-# CPU Logical cores  : 8
-# Host memory        : 16466 MB
-# Swap memory        : 17179 MB
-# Total Virtual      : 33646 MB
-# Available Virtual  : 10043 MB
+# Log file           : /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1/clk_wiz_0.vds
+# Journal file       : /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.runs/clk_wiz_0_synth_1/vivado.jou
+# Running On         : jet.csh.rit.edu
+# Platform           : rocky
+# Operating System   : Rocky Linux 9.8 (Blue Onyx)"
+RELEASE_TYPE="stable
+# Processor Detail   : Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
+# CPU Frequency      : 3400.142 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 48
+# Host memory        : 810721 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 815016 MB
+# Available Virtual  : 800574 MB
 #-----------------------------------------------------------
 source clk_wiz_0.tcl -notrace
