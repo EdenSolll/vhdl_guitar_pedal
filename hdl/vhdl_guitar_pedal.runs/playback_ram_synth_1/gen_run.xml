@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="playback_ram_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1784749902">
+  <File Type="VDS-TIMING-PB" Name="playback_ram_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="playback_ram_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="playback_ram.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="playback_ram_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="playback_ram_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="playback_ram_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="playback_ram.vds"/>
+  <File Type="REPORTS-TCL" Name="playback_ram_reports.tcl"/>
+  <File Type="PA-TCL" Name="playback_ram.tcl"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/playback_ram" RelGenDir="$PGENDIR/playback_ram">
+    <File Path="$PSRCDIR/sources_1/ip/playback_ram/playback_ram.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="playback_ram"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/playback_ram" RelGenDir="$PGENDIR/playback_ram">
+    <File Path="$PSRCDIR/sources_1/ip/playback_ram/playback_ram.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="playback_ram"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2026"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

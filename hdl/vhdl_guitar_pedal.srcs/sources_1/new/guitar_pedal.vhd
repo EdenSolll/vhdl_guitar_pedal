@@ -26,8 +26,6 @@ entity guitar_pedal is
 end guitar_pedal;
 
 architecture structural of guitar_pedal is
-
-    type audio_buffer_t is array (0 to 1023) of t_audio_sample;
     
     -- Stream signals
     signal adc_stream       : t_axis_forward;
@@ -48,15 +46,12 @@ architecture structural of guitar_pedal is
     signal r_data_tx   : std_logic_vector(C_AUDIO_WIDTH-1 downto 0);
     signal r_data_avg  : std_logic_vector(C_AUDIO_WIDTH-1 downto 0);
 
+    -- Overlap-add signals
+    signal playback_ram_data_out   : std_logic_vector(C_AUDIO_WIDTH-1 downto 0);
+
     -- Pitch control signals
     signal pitch_shift_ctl         : signed(15 downto 0);
     signal inverse_pitch_shift_ctl : unsigned(17 downto 0); 
-
-    -- Overlap-add signals
-    signal playback_ram    : audio_buffer_t;
-
-    attribute ram_style : string;
-    attribute ram_style of playback_ram : signal is "block";
 
     signal ws_delay        : std_logic := '0';
     
@@ -118,6 +113,20 @@ architecture structural of guitar_pedal is
             inverse_pitch_shift : out unsigned(17 downto 0)
         );
     end component;
+    
+    COMPONENT playback_ram
+        PORT (
+            clka : IN STD_LOGIC;
+            ena : IN STD_LOGIC;
+            wea : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+            addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            dina : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
+            clkb : IN STD_LOGIC;
+            enb : IN STD_LOGIC;
+            addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            doutb : OUT STD_LOGIC_VECTOR(23 DOWNTO 0) 
+          );
+        END COMPONENT;
 
 begin
 
@@ -176,45 +185,68 @@ begin
         bypass        => bypass_sel
     );
     
+    -- Block RAM Instantiation
+    -- Port A: Write (from overlap-add buffer)
+    -- Port B: Read (to I2S output)
+    playback_ram_inst : playback_ram
+    port map (
+        clka  => CLK100MHZ,
+        ena   => '1',
+        enb   => '1',
+        wea   => (0 => audio_out_stream.valid, 
+                  1 => audio_out_stream.valid, 
+                  2 => audio_out_stream.valid),
+        addra => std_logic_vector(resize(frame_start_addr + write_offset, 10)),
+        dina  => std_logic_vector(audio_out_stream.data),
+        clkb  => CLK100MHZ,
+        addrb => std_logic_vector(resize(i2s_read_addr, 10)),
+        doutb => playback_ram_data_out
+    );
+    
     -- Streaming Bridge: I2S word_select -> t_axis_forward
     process(CLK100MHZ)
         variable sample_count : integer range 0 to 1023 := 0;
     begin
         if rising_edge(CLK100MHZ) then
+            if rst = '1' then
+                i2s_read_addr <= (others => '0');
+                sample_count := 0;
+                ws_delay <= '0';
+                adc_stream.valid <= '0';
+                adc_stream.last <= '0';
+            else
             ws_delay <= word_select;
             
-            -- Detect when new sample available
-            if ws_delay = '1' and word_select = '0' then
-                -- Output audio from overlap-add buffer to I2S
-                l_data_tx <= std_logic_vector(playback_ram(to_integer(i2s_read_addr)));
-                r_data_tx <= std_logic_vector(playback_ram(to_integer(i2s_read_addr)));
-                
-                -- Clear the memory address for the next frame
-                playback_ram(to_integer(i2s_read_addr)) <= (others => '0');
-                
-                -- Advance read pointer
-                i2s_read_addr <= i2s_read_addr + 1;
-                
-                -- Send new sample if pedal is ready
-                if pedal_ready = '1' then
-                    adc_stream.data  <= signed(r_data_avg);
-                    adc_stream.valid <= '1';
+                -- Detect when new sample available
+                if ws_delay = '1' and word_select = '0' then
+                    -- Output audio from overlap-add buffer to I2S
+                    l_data_tx <= playback_ram_data_out;
+                    r_data_tx <= playback_ram_data_out;
+                                   
+                    -- Advance read pointer
+                    i2s_read_addr <= i2s_read_addr + 1;
                     
-                    -- Manage 'last' sample frame boundaries
-                    if sample_count = 1023 then
-                        adc_stream.last <= '1';
-                        sample_count := 0;
+                    -- Send new sample if pedal is ready
+                    if pedal_ready = '1' then
+                        adc_stream.data  <= signed(r_data_avg);
+                        adc_stream.valid <= '1';
+                        
+                        -- Manage 'last' sample frame boundaries
+                        if sample_count = 1023 then
+                            adc_stream.last <= '1';
+                            sample_count := 0;
+                        else
+                            adc_stream.last <= '0';
+                            sample_count := sample_count + 1;
+                        end if;
                     else
-                        adc_stream.last <= '0';
-                        sample_count := sample_count + 1;
+                        adc_stream.valid <= '0';
+                        adc_stream.last  <= '0';
                     end if;
                 else
                     adc_stream.valid <= '0';
                     adc_stream.last  <= '0';
                 end if;
-            else
-                adc_stream.valid <= '0';
-                adc_stream.last  <= '0';
             end if;
         end if;
     end process;
@@ -222,27 +254,18 @@ begin
     -- Overlap-Add Buffer Process
     process(CLK100MHZ)
         variable absolute_write_addr : integer range 0 to 1023;
-        variable current_val         : t_audio_sample;
-        variable sum_val             : t_audio_sample;
     begin
         if rising_edge(CLK100MHZ) then
             if rst = '1' then 
                 overlap_ready <= '1';
                 frame_start_addr <= (others => '0');
                 write_offset <= (others => '0'); 
-                i2s_read_addr <= (others => '0');
-                playback_ram <= (others => (others => '0'));
             else
                 overlap_ready <= '1';  -- Consider adding better more complex AXI4 logic in the future 
                 
                 if audio_out_stream.valid = '1' and overlap_ready = '1' then
                     -- Calculate circular address: Frame Start + current offset
                     absolute_write_addr := to_integer(frame_start_addr + write_offset);
-                    
-                    -- Read existing data, add new sample, and write back
-                    current_val := playback_ram(absolute_write_addr);
-                    sum_val     := current_val + audio_out_stream.data;
-                    playback_ram(absolute_write_addr) <= sum_val;
                     
                     -- Manage write offset and frame hopping
                     if write_offset = 1023 then

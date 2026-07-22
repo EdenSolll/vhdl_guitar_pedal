@@ -1,0 +1,525 @@
+/*
+
+AMD Vivado v2026.1 (64-bit) [Major: 2026, Minor: 1]
+SW Build: 6511674 on Tue Jun 16 11:01:26 MDT 2026
+IP Build: 6504888 on Tue Jun 09 09:05:25 MDT 2026
+IP Build: 6504888 on Tue Jun 09 09:05:25 MDT 2026
+
+Process ID (PID): 3836854
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed Jul 22 12:15:34 EDT 2026
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Rocky Linux release 9.8 (Blue Onyx)
+OS Version: 5.14.0-687.12.1.el9_8.x86_64
+OS Architecture: amd64
+Available processors (cores): 48
+LSB Release Description: NAME=Rocky Linux
+
+Display: localhost:10.0
+Screen size: 2880x1620
+Local screen bounds: x = 0, y = 0, width = 2880, height = 1620
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Open Sans,name=Open Sans,style=plain,size=13
+Scale size: 13
+OS font scaling: 100%
+Anti-Alias Enabled: true
+
+Java version: 	24.0.2 64-bit
+
+Java home: 	/users/u31/sol/xilinx_host/Xilinx/2026.1/tps/lnx64/jre24.0.2_12
+Java executable: 	/users/u31/sol/xilinx_host/Xilinx/2026.1/tps/lnx64/jre24.0.2_12/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:ParallelGCThreads=4, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, --sun-misc-unsafe-memory-access=allow, --enable-native-access=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms812m, -Xmx6144m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	812 MB
+Java maximum memory (-Xmx):	 6 GB
+
+User name: 	sol
+User home directory: /users/u31/sol
+User working directory: /users/u31/sol/vhdl_guitar_pedal
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1
+HDI_APPROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+RDI_DATADIR: /users/u31/sol/vhdl_guitar_pedal/:/users/u31/sol/xilinx_host/Xilinx/2026.1/data
+RDI_BINDIR: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin
+
+Vivado preferences file: /users/u31/sol/.Xilinx/Vivado/2026.1/newvivado.xml
+Vivado preferences directory: /users/u31/sol/.Xilinx/Vivado/2026.1/
+Vivado layouts directory: /users/u31/sol/.Xilinx/Vivado/2026.1/data/layouts
+PlanAhead jar file: 	/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/classes/planAhead.jar
+Vivado log file: 	/users/u31/sol/vhdl_guitar_pedal/vivado.log
+Vivado journal file: 	/users/u31/sol/vhdl_guitar_pedal/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-3836854-jet.csh.rit.edu
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+RDI_APPROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+RDI_BASEROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1
+RDI_BINROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin
+RDI_BUILD: yes
+RDI_DATADIR: :/users/u31/sol/xilinx_host/Xilinx/2026.1/data
+RDI_INSTALLROOT: /users/u31/sol/xilinx_host/Xilinx
+RDI_INSTALLVER: Vivado
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 24.0.2_12
+RDI_LIBDIR: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/lnx64.o/Rhel/9:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/lnx64.o/Rhel:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis/bin:/users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE/bin/lin64
+RDI_PROG: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /users/u31/sol/vhdl_guitar_pedal:jet.csh.rit.edu_1784736893_3836801
+RDI_SHARED_DATA: 
+RDI_TPS_ROOT: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/tps/lnx64
+RDI_USE_JDK24: True
+SHELL: /bin/bash
+XILINX: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE
+XILINXD_LICENSE_FILE: /users/u31/sol/xilinx_licenses/core_licenses/server.lic
+XILINX_DSP: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado/ids_lite/ISE
+XILINX_HLS: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis
+XILINX_PLANAHEAD: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+XILINX_SDK: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis
+XILINX_VITIS: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vitis
+XILINX_VIVADO: /users/u31/sol/xilinx_host/Xilinx/2026.1/Vivado
+_JAVA_AWT_WM_NONREPARENTING: 1
+
+
+GUI allocated memory:	812 MB
+GUI max memory:		6,144 MB
+Engine allocated memory: 1,991 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 10-jul-2027. 
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,954 MB. GUI used memory: 66 MB. Current time: 7/22/26, 12:15:35 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,930 MB. GUI used memory: 65 MB. Current time: 7/22/26, 12:16:03 PM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,930 MB. GUI used memory: 65 MB. Current time: 7/22/26, 12:16:43 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,930 MB. GUI used memory: 65 MB. Current time: 7/22/26, 12:17:23 PM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,930 MB. GUI used memory: 65 MB. Current time: 7/22/26, 12:18:04 PM EDT
+selectList(PAResourceTtoZ.UpgradedSyntheticaGettingStartedView_RECENT_PROJECTS, "/users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr$Artix-7, xc7a35tcpg236-1", 0); // b.c (PAResourceTtoZ.UpgradedSyntheticaGettingStartedView_RECENT_PROJECTS)
+// Opening Vivado Project: /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr. Version: Vivado v2026.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: open_project /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: MSGMGR_REFRESH_MSG
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,975 MB. GUI used memory: 70 MB. Current time: 7/22/26, 12:18:30 PM EDT
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 136 MB (+140259kb) [00:03:12]
+// [Engine Memory]: 2,087 MB (+2036603kb) [00:03:12]
+// WARNING: HEventQueue.dispatchEvent() is taking  2697 ms.
+// Tcl Message: open_project /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/users/u31/sol/xilinx_host/Xilinx/2026.1/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 10264.395 ; gain = 234.316 ; free physical = 583078 ; free virtual = 759361 
+// Project name: vhdl_guitar_pedal; location: /users/u31/sol/vhdl_guitar_pedal/hdl; part: xc7a35tcpg236-1
+// Elapsed time: 11 seconds
+dismissDialog("Open Project"); // bk (Open Project Progress)
+// [Engine Memory]: 2,200 MB (+9022kb) [00:03:18]
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,238 MB. GUI used memory: 79 MB. Current time: 7/22/26, 12:18:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,214 MB. GUI used memory: 79 MB. Current time: 7/22/26, 12:19:24 PM EDT
+// Elapsed time: 58 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd)]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd), drop_wammy_inst : drop_wammy_pedal(structural) (drop_wammy_pedal.vhd)]", 5); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd), drop_wammy_inst : drop_wammy_pedal(structural) (drop_wammy_pedal.vhd), polar_fft_inst : polar_fft_wrapper(behavioral) (polar_fft_wrapper.vhd)]", 7, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd), drop_wammy_inst : drop_wammy_pedal(structural) (drop_wammy_pedal.vhd), polar_fft_inst : polar_fft_wrapper(behavioral) (polar_fft_wrapper.vhd)]", 7, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal(structural) (guitar_pedal.vhd), drop_wammy_inst : drop_wammy_pedal(structural) (drop_wammy_pedal.vhd), polar_fft_inst : polar_fft_wrapper(behavioral) (polar_fft_wrapper.vhd)]", 7, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+// [GUI Memory]: 156 MB (+14127kb) [00:04:22]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,266 MB. GUI used memory: 81 MB. Current time: 7/22/26, 12:19:45 PM EDT
+selectCodeEditor("polar_fft_wrapper.vhd", 441, 377); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 441, 377); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 67, 349); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,267 MB. GUI used memory: 81 MB. Current time: 7/22/26, 12:20:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,267 MB. GUI used memory: 81 MB. Current time: 7/22/26, 12:20:44 PM EDT
+// Elapsed time: 51 seconds
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, PAResourceEtoH.FileSetView_ADD_TAB, "Compile Order", 3); // g (PAResourceEtoH.FileSetView_TABBED_PANE, SourcesView)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audio_stream_pkg.vhd]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audio_stream_pkg.vhd]", 2, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+// Elapsed time: 33 seconds
+selectCodeEditor("audio_stream_pkg.vhd", 389, 565); // ae (audio_stream_pkg.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,298 MB. GUI used memory: 82 MB. Current time: 7/22/26, 12:21:24 PM EDT
+selectCodeEditor("audio_stream_pkg.vhd", 264, 596); // ae (audio_stream_pkg.vhd)
+selectCodeEditor("audio_stream_pkg.vhd", 264, 596, false, false, false, false, true); // ae (audio_stream_pkg.vhd) - Double Click
+selectCodeEditor("audio_stream_pkg.vhd", 292, 615); // ae (audio_stream_pkg.vhd)
+selectCodeEditor("audio_stream_pkg.vhd", 292, 615, false, false, false, false, true); // ae (audio_stream_pkg.vhd) - Double Click
+selectCodeEditor("audio_stream_pkg.vhd", 292, 615); // ae (audio_stream_pkg.vhd)
+typeControlKey((HResource) null, "audio_stream_pkg.vhd", 'c'); // ae (audio_stream_pkg.vhd)
+typeControlKey((HResource) null, "audio_stream_pkg.vhd", 'c'); // ae (audio_stream_pkg.vhd)
+typeControlKey((HResource) null, "audio_stream_pkg.vhd", 'c'); // ae (audio_stream_pkg.vhd)
+typeControlKey((HResource) null, "audio_stream_pkg.vhd", 'c'); // ae (audio_stream_pkg.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,298 MB. GUI used memory: 82 MB. Current time: 7/22/26, 12:22:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,298 MB. GUI used memory: 82 MB. Current time: 7/22/26, 12:22:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,298 MB. GUI used memory: 82 MB. Current time: 7/22/26, 12:23:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,298 MB. GUI used memory: 82 MB. Current time: 7/22/26, 12:24:04 PM EDT
+// Elapsed time: 195 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal.vhd]", 13, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guitar_pedal.vhd]", 13, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:24:44 PM EDT
+// [Engine Memory]: 2,338 MB (+30055kb) [00:09:23]
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, PAResourceEtoH.FileSetView_INSERT_TAB, "Hierarchy", 0); // g (PAResourceEtoH.FileSetView_TABBED_PANE, SourcesView)
+selectCodeEditor("guitar_pedal.vhd", 365, 428); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 331, 657); // ae (guitar_pedal.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:25:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:26:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:26:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:27:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:28:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:28:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:29:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:30:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:30:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:31:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:32:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:32:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:33:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:34:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:34:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:35:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:36:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:36:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:37:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:38:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:38:44 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:39:24 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:40:04 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,338 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:40:44 PM EDT
+// Elapsed time: 955 seconds
+selectCodeEditor("guitar_pedal.vhd", 273, 377); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 273, 377); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 273, 377); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 273, 377); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 273, 377); // ae (guitar_pedal.vhd)
+selectCodeEditor("guitar_pedal.vhd", 174, 662); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+typeControlKey((HResource) null, "guitar_pedal.vhd", 'c'); // ae (guitar_pedal.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "polar_fft_wrapper.vhd", 1); // m (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("polar_fft_wrapper.vhd", 210, 136); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 180, 439); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 180, 439); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 180, 439); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 157, 280); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'v'); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 83, 295); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 58, 322); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 57, 508); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 82, 484); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 194, 322); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 194, 322, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:41:24 PM EDT
+selectCodeEditor("polar_fft_wrapper.vhd", 175, 535); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:42:05 PM EDT
+// Elapsed time: 58 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 422, 732); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'c'); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'c'); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:42:45 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:43:25 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:44:05 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:44:45 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:45:25 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:46:05 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:46:45 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:47:25 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:48:05 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:48:45 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:49:25 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:50:05 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:50:45 PM EDT
+// Elapsed time: 504 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 330, 413); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 420, 497); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 193, 250); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 437, 278); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 434, 284); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 434, 294); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'v'); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 67, 247); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 67, 247, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 67, 247); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 112, 247); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 122, 246); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 185, 247); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 185, 247, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 241, 312); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 125, 329); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'v'); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 69, 323); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 69, 323, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:51:25 PM EDT
+selectCodeEditor("polar_fft_wrapper.vhd", 250, 320); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 255, 300); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 24, 256); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 33, 264); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 222, 376); // ae (polar_fft_wrapper.vhd)
+// Elapsed time: 13 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 195, 452); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 194, 477); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 352, 477); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 217, 467); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 206, 469); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,344 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:52:05 PM EDT
+// Elapsed time: 23 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 116, 568); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'v'); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 116, 240); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 114, 238); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 319, 261); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 474, 268); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 140, 257); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 68, 263); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,354 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:52:45 PM EDT
+selectCodeEditor("polar_fft_wrapper.vhd", 227, 272); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 487, 264); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 373, 475); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 66, 472); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 110, 583); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 110, 583, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 64, 683); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 319, 642); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 549, 334); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 549, 334); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 539, 349); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 560, 353); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 550, 367); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 589, 420); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 589, 420, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 224, 427); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,354 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:53:25 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,354 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:54:05 PM EDT
+// Elapsed time: 53 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 109, 641); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 60, 668); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 47, 656); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 146, 432); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 81, 444); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 78, 265); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 49, 252); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 11, 267); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 11, 267, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 10, 277); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 45, 504); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,354 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:54:45 PM EDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 36m:14s
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 36m:16s
+// Elapsed time: 21 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 570, 640); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 187, 491); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 187, 491, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 345, 622); // ae (polar_fft_wrapper.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 36m:26s
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 36m:28s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,406 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:55:05 PM EDT
+// Elapsed time: 15 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 354, 640); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 340, 686); // ae (polar_fft_wrapper.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 36m:44s
+selectCodeEditor("polar_fft_wrapper.vhd", 347, 694); // ae (polar_fft_wrapper.vhd)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 36m:46s
+selectCodeEditor("polar_fft_wrapper.vhd", 590, 633); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,427 MB. GUI used memory: 83 MB. Current time: 7/22/26, 12:55:26 PM EDT
+selectCodeEditor("polar_fft_wrapper.vhd", 449, 652); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 613, 666); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 526, 723); // ae (polar_fft_wrapper.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 37m:02s
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 37m:04s
+selectCodeEditor("polar_fft_wrapper.vhd", 629, 607); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 618, 575); // ae (polar_fft_wrapper.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 37m:18s
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/O.f': 37m:20s
+selectCodeEditor("polar_fft_wrapper.vhd", 356, 595); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 272, 733); // ae (polar_fft_wrapper.vhd)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // ab
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, false); // f (PAResourceItoN.MsgView_INFORMATION_MESSAGES): FALSE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,448 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:56:06 PM EDT
+// Elapsed time: 10 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. , [Synth 8-6040] Register cos_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 8, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true, false, false, false, false, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Double Click - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true, false, false, false, true, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Popup Trigger - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1]", 6, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1]", 6, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1]", 6); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "ID;-;[Synth 37-28];-;;-;16;-;Resolution;-;Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.;-;;-;16;-;"); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k (RDIResource.HPopupTitle_CLOSE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 8-6040] Register sin_addr_2s_comp/use_output_reg.D_OUT_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.. ]", 7, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:56:46 PM EDT
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, xfft_0_synth_1, [Synth 37-28] Duplicate attribute 'max_fanout' found for instance 'use_dist_ram.distributed_ram' of module 'dist_mem'.. Resolution: Check your design sources near the definition of the module or any related 'include files, looking for duplicate definitions with different values.. ]", 8, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Node
+selectCodeEditor("polar_fft_wrapper.vhd", 454, 749); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 454, 749, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 454, 749); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 454, 749); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 1460, 598); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 1447, 610); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 1200, 695); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 1200, 695, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 1160, 696); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:57:26 PM EDT
+// Elapsed time: 35 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 139, 548); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:58:06 PM EDT
+// Elapsed time: 45 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 410, 487); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'v'); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 115, 502); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 155, 572); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 425, 520); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 340, 529); // ae (polar_fft_wrapper.vhd)
+typeControlKey((HResource) null, "polar_fft_wrapper.vhd", 'v'); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 228, 547); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 233, 572); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 233, 572, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 233, 572); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 208, 555); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 208, 555, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 208, 555); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:58:46 PM EDT
+// Elapsed time: 23 seconds
+selectCodeEditor("polar_fft_wrapper.vhd", 152, 582); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 153, 588); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 153, 588, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 153, 588); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 153, 588); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 153, 588, false, false, false, false, true); // ae (polar_fft_wrapper.vhd) - Double Click
+selectCodeEditor("polar_fft_wrapper.vhd", 153, 588); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 224, 623); // ae (polar_fft_wrapper.vhd)
+selectCodeEditor("polar_fft_wrapper.vhd", 272, 744); // ae (polar_fft_wrapper.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 12:59:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:00:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:00:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:01:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:02:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:02:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:03:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:04:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:04:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:05:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:06:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:06:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:07:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 85 MB. Current time: 7/22/26, 1:08:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:08:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:09:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:10:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:10:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:11:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:12:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:12:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:13:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:14:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:14:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:15:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:16:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:16:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:17:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:18:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:18:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:19:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:20:06 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:20:46 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:21:26 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:22:07 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:22:47 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:23:27 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:24:07 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:24:47 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:25:27 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:26:07 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:26:47 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:27:27 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:28:07 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:28:47 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:29:27 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:30:07 PM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,445 MB. GUI used memory: 84 MB. Current time: 7/22/26, 1:30:47 PM EDT

@@ -1,0 +1,6 @@
+xpm_cdc.sv,systemverilog,xpm,../../../../../../xilinx_host/Xilinx/2026.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../../../xilinx_host/Xilinx/2026.1/data/rsb/busdef"
+xpm_memory.sv,systemverilog,xpm,../../../../../../xilinx_host/Xilinx/2026.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../../../xilinx_host/Xilinx/2026.1/data/rsb/busdef"
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../xilinx_host/Xilinx/2026.1/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../../../xilinx_host/Xilinx/2026.1/data/rsb/busdef"
+blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_13,../../../ipstatic/simulation/blk_mem_gen_v8_4.v,incdir="../../../../../../xilinx_host/Xilinx/2026.1/data/rsb/busdef"
+playback_ram.v,verilog,xil_defaultlib,../../../../vhdl_guitar_pedal.gen/sources_1/ip/playback_ram/sim/playback_ram.v,incdir="../../../../../../xilinx_host/Xilinx/2026.1/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v

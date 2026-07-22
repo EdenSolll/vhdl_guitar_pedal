@@ -102,6 +102,9 @@ set_property used_in_implementation false [get_files -all /users/u31/sol/vhdl_gu
 read_ip -quiet /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/ip/cordic_1/cordic_1.xci
 set_property used_in_implementation false [get_files -all /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/cordic_1/cordic_1_ooc.xdc]
 
+read_ip -quiet /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.srcs/sources_1/ip/playback_ram/playback_ram.xci
+set_property used_in_implementation false [get_files -all /users/u31/sol/vhdl_guitar_pedal/hdl/vhdl_guitar_pedal.gen/sources_1/ip/playback_ram/playback_ram_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -1,0 +1,2 @@
+playback_ram.v,verilog,xil_defaultlib,../../../../vhdl_guitar_pedal.gen/sources_1/ip/playback_ram/sim/playback_ram.v,incdir="../../../../../../xilinx_host/Xilinx/2026.1/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v
