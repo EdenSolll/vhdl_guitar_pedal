@@ -126,7 +126,7 @@ architecture structural of guitar_pedal is
             addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
             doutb : OUT STD_LOGIC_VECTOR(23 DOWNTO 0) 
           );
-        END COMPONENT;
+     END COMPONENT;
 
 begin
 
